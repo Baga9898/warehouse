@@ -53,7 +53,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             title: 'WHS',
-            template: './src/index.html',
+            template: './public/index.html',
         }),
         new MiniCssExtractPlugin({
             filename: production ? '[name].[contenthash].css' : '[name].css',
