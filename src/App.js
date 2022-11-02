@@ -1,11 +1,10 @@
-import './App.css';
+import React from 'react';
+import './app.scss';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      App code here!
-    </div>
-  );
+    <div className='app'>asdf</div>
+  )
 }
 
 export default App;
