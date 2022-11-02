@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -7,9 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const production = process.env.NODE_ENV === 'production';
 
 module.exports = {
-    entry: { 
-        myAppName: path.resolve(__dirname, './src/index.js') 
-    },
+    entry: path.resolve(__dirname, './src/index.js'),
 
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -50,7 +47,6 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             title: 'WHS',
             template: './public/index.html',
@@ -64,5 +60,5 @@ module.exports = {
         hot: true,
         open: true,
     },
-    mode: production ? 'production' : 'development'
+    mode: production ? 'production' : 'development',
 }
