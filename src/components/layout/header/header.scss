@@ -1,18 +1,46 @@
 .header {
     height: 40px;
     padding: 0 20px;
-    background: rgb(21, 21, 21);
+    background: #000;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: 0.5s;
 
-    &:hover {
-        background: #000;
+    a {
+        color: #fff;
     }
 
     &__rightside {
         display: flex;
+    }
+
+    &__menu-icon {
+        margin-right: 20px;
+        font-size: 20px;
+        cursor: pointer;
+        color: rgb(131, 131, 131);
+        transition: 0.5s;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+
+    &__logo {
+        font-weight: 900;
+        font-size: 20px;
+    }
+
+    &__profile-icon {
+        font-size: 20px;
+        cursor: pointer;
+        color: rgb(131, 131, 131);
+        transition: 0.5s;
+
+        &:hover {
+            color: #fff;
+        }
     }
 }

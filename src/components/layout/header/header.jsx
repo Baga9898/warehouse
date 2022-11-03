@@ -1,25 +1,29 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faUser } from '@fortawesome/free-solid-svg-icons';
 import './header.scss';
 
 const Header = () => {
   return (
     <header className='header'>
       <div className='header__rightside'>
-        
-        <div>WHS</div>
-      </div>
-      <div>
-        <div>login/logout or profile</div>
-      </div>
+        <FontAwesomeIcon className='header__menu-icon' icon={faBars} />
         <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/warehouses">Warehouses</Link>
           </li>
         </ul>
+        <Link to='/'>
+          <div className='header__logo'>WHS</div>
+        </Link>
+      </div>
+      <div>
+        <FontAwesomeIcon className='header__profile-icon' icon={faUser} />
+      </div>
     </header>
   )
 }
