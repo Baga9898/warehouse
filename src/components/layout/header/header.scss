@@ -1,0 +1,18 @@
+.header {
+    height: 40px;
+    padding: 0 20px;
+    background: rgb(21, 21, 21);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.5s;
+
+    &:hover {
+        background: #000;
+    }
+
+    &__rightside {
+        display: flex;
+    }
+}

@@ -43,6 +43,10 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 
+body {
+    background: #ecf0f3;
+}
+
 input,
 button,
 textarea {
@@ -75,4 +79,10 @@ li {
 
 img {
     vertical-align: top;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 10px;
+    margin: 0 auto;
 }
