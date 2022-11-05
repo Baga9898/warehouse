@@ -9,14 +9,6 @@ const Header = () => {
     <header className='header'>
       <div className='header__rightside'>
         <FontAwesomeIcon className='header__menu-icon' icon={faBars} />
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/warehouses">Warehouses</Link>
-          </li>
-        </ul>
         <Link to='/'>
           <div className='header__logo'>WHS</div>
         </Link>
