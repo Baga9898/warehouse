@@ -43,6 +43,14 @@
         text-align: center;
         cursor: pointer;
 
+        &.active {
+
+            div svg,
+            p {
+                color: #fff;
+            }
+        }
+
         &:hover div svg,
         &:hover p {
             color: #fff;
