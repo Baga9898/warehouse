@@ -1,11 +1,11 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon }   from '@fortawesome/react-fontawesome';
 import { 
     faWarehouse, 
     faUsersGear, 
     faChartSimple, 
     faBox, 
     faUserTag 
-} from '@fortawesome/free-solid-svg-icons';
+}                            from '@fortawesome/free-solid-svg-icons';
 
 export const sidebarMenuItems = [
     {

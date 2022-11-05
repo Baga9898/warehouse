@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
-import { sidebarMenuItems } from './sidebarMenuItems';
+import React                  from 'react';
+import { Link }               from 'react-router-dom';
+import { useSelector }        from 'react-redux';
+
+import { sidebarMenuItems }   from './sidebarMenuItems';
+
 import './sidebarMenu.scss';
 
 const SidebarMenu = () => {
-    const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
-
-    const openCloseSidebar = () => {
-        setSidebarIsOpen(!sidebarIsOpen);
-    }
+    const sidebarIsOpen = useSelector(state => state.sidebarMenu.sidebarIsOpen);
 
     return (
-        <>
-        <button style={{position: 'absolute', left: '50%'}} onClick={openCloseSidebar}>open/close</button>
         <div className={sidebarIsOpen? 'sidebar active' : 'sidebar'}>
             {sidebarMenuItems.map(item => (
                 <div className='sidebar__section' key={item.section}>
@@ -29,7 +26,6 @@ const SidebarMenu = () => {
                 </div>
             ))}
         </div>
-        </>
     )
 }
 
