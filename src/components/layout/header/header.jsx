@@ -1,7 +1,7 @@
-import React                 from 'react';
-import { Link }              from "react-router-dom";
-import { FontAwesomeIcon }   from '@fortawesome/react-fontawesome';
-import { faBars, faUser }    from '@fortawesome/free-solid-svg-icons';
+import React, { useRef, useEffect }   from 'react';
+import { Link }                       from "react-router-dom";
+import { FontAwesomeIcon }            from '@fortawesome/react-fontawesome';
+import { faBars, faUser }             from '@fortawesome/free-solid-svg-icons';
 
 import './header.scss';
 import { useDispatch } from 'react-redux';
