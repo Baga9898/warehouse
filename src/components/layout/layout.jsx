@@ -13,12 +13,12 @@ const Layout = ({ children }) => {
 
   return (
     <>
-        <Header />
+      <Header />
         <SidebarMenu />
-          <div className='container' onClick={closeSidebar}>
-            {children} 
-          </div>
-        <Footer />
+        <div className='container' onClick={closeSidebar}>
+          {children} 
+        </div>
+      <Footer />
     </>
   )
 }
