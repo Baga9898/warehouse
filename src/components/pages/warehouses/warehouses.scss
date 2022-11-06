@@ -1,0 +1,38 @@
+.warehouses {
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__item {
+        width: 280px;
+        height: 180px;
+        background: rgb(160, 160, 160);
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.5s;
+        border-radius: 5px;
+
+        &:hover {
+            background: rgb(77, 77, 77);
+        }
+
+        svg {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 700;
+        }
+    }
+}
