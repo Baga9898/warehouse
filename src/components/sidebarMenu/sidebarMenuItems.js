@@ -18,7 +18,7 @@ export const sidebarMenuItems = [
         section: 'Statistic',
         items: [
             { title: 'statistic', path: '/statistic', icon: <FontAwesomeIcon icon={faChartSimple} /> },
-            { title: 'leftovers', path: '/leftovers', icon: <FontAwesomeIcon icon={faBox} /> },
+            { title: 'leftovers', path: '/test', icon: <FontAwesomeIcon icon={faBox} /> },
         ]
     },
     {
