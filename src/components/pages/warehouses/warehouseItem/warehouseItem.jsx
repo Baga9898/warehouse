@@ -31,13 +31,13 @@ const WarehouseItem = () => {
     return (
     <section className='warehouseItem'>
         <h1>warehouseItem</h1>
-        <div className='warehouseItem__table_wrapper'>
+        <div id='whtable' className='warehouseItem__table_wrapper'>
             <table className='warehouseItem__table'>
                 <tbody>
-                    {cells.row.map(() => (
+                    {cells.row.map(row => (
                         <tr>
                             {cells.col.map(col => (
-                                <td ></td>
+                                <td>{`${row}-${col}`}</td>
                             ))}
                         </tr>
                     ))}

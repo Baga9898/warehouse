@@ -94,3 +94,37 @@ section h1 {
     font-weight: 900;
     margin-bottom: 10px;
 }
+
+/*Scrollbar*/
+
+::-webkit-scrollbar-button {
+    background-repeat: no-repeat;
+    width: 5px;
+    height: 0px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #ffffff00;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #3838385e;
+    background-color: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #383838;
+    background-color: transparent;
+  }
+  
+  ::-webkit-resizer {
+    background-repeat: no-repeat;
+    width: 4px;
+    height: 0px
+  }
+  
+  ::-webkit-scrollbar {
+    width: 4px;
+  }

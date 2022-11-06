@@ -15,6 +15,8 @@ const mockWarehouses = [
   { id: '8',name: 'WH-8' },
 ]
 
+//TODO: Список складов вынести в отдельный компонент.
+
 const Warehouses = () => {
   return (
     <section className='warehouses'>
