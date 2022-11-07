@@ -1,8 +1,9 @@
 import React from "react";
 import { createSelectable } from "react-selectable-fast";
 
-function Box(props) {
-  const { selectableRef, isSelected, isSelecting } = props;
+const Cell = ({ selectableRef, isSelected, isSelecting, col, row }) => {
+  isSelected && console.log(`${col}-${row}`);
+
   return (
     <td
       ref={selectableRef}
@@ -11,10 +12,13 @@ function Box(props) {
           ? '#595959'
           : isSelecting
           ? '#adadad'
-          : ''
+          : '',
+        color: isSelected && '#fff'
       }}
-    ></td>
+    >
+      {`${col}-${row}`}
+    </td>
   );
 }
 
-export default createSelectable(Box);
+export default createSelectable(Cell);

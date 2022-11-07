@@ -9,10 +9,12 @@
                 height: 20px;
                 background: #d3d3d3;
                 border-radius: 5px;
+                padding: 2px;
                 transition: 0.5s;
 
                 &:hover {
-                    background: #595959;
+                    background: #949494;
+                    color: #fff;
                 }
             }
         }
@@ -24,12 +26,11 @@
     }
 }
 
-  
-  .selectable-selectbox {
-    z-index: 9000;
-    position: absolute;
-    cursor: default;
-    background: none;
-    border: 1px dashed grey;
-  }
+.selectable-selectbox {
+z-index: 9000;
+position: absolute;
+cursor: default;
+background: rgba(105, 105, 105, 0.3);
+border: 1px solid grey;
+}
   

@@ -1,6 +1,6 @@
 import React from 'react';
 import { SelectableGroup } from "react-selectable-fast";
-import Box from './check';
+import Cell from './cell';
 import './warehouseItem.scss';
 
 
@@ -28,43 +28,42 @@ const WarehouseItem = () => {
         };
     }
 
-    const cells = (createWarehouse(35, 40));
+    const cells = (createWarehouse(35, 35));
 
     const handleSelecting = (items) => {
-    console.log("selecting:", items);
+        console.log("selecting:", items);
     };
 
     const handleSelectionFinish = (items) => {
-    // console.log("finish selecting:", items);
+        console.log("finish selecting:", 'yep');
     };
 
     return (
     <section className='warehouseItem'>
         <h1>warehouseItem</h1>
-        <div id='whtable' className='warehouseItem__table_wrapper'>
-            <table className='warehouseItem__table'>
-                <tbody>
-                    <SelectableGroup
-                        className="main"
-                        clickClassName="tick"
-                        enableDeselect
-                        tolerance={0}
-                        globalMouse={false}
-                        allowClickWithoutSelected={false}
-                        duringSelection={handleSelecting}
-                        onSelectionFinish={handleSelectionFinish}
-                    >
-                    {cells.row.map(row => (
-                        <tr key={row}>
-                            {cells.col.map(col => (
-                                
-                                <Box />
-                            ))}
-                        </tr>
-                    ))}
-                    </SelectableGroup>
-                </tbody>
-            </table>
+        <div className='warehouseItem__table_wrapper'>
+            <SelectableGroup
+                className="main"
+                clickClassName="tick"
+                enableDeselect
+                tolerance={0}
+                globalMouse={false}
+                allowClickWithoutSelected={false}
+                duringSelection={handleSelecting}
+                onSelectionFinish={handleSelectionFinish}
+            >
+                <table className='warehouseItem__table'>
+                    <tbody>
+                        {cells.row.map(row => (
+                            <tr key={row}>
+                                {cells.col.map(col => (
+                                    <Cell key={`${row}-${col}`} col={col} row={row} />
+                                ))}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </SelectableGroup>
         </div>
     </section>
     )
