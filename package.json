@@ -29,8 +29,8 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
+    "react-selectable-fast": "^3.4.0",
     "redux": "^4.2.0",
-    "selectable.js": "^0.18.0",
     "url-loader": "^4.1.1"
   },
   "devDependencies": {

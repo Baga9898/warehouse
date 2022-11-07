@@ -1,5 +1,8 @@
 import React from 'react';
+import { SelectableGroup } from "react-selectable-fast";
+import Box from './check';
 import './warehouseItem.scss';
+
 
 const WarehouseItem = () => {
 
@@ -25,8 +28,15 @@ const WarehouseItem = () => {
         };
     }
 
-    const cells = (createWarehouse(30, 50));
+    const cells = (createWarehouse(35, 40));
 
+    const handleSelecting = (items) => {
+    console.log("selecting:", items);
+    };
+
+    const handleSelectionFinish = (items) => {
+    // console.log("finish selecting:", items);
+    };
 
     return (
     <section className='warehouseItem'>
@@ -34,13 +44,25 @@ const WarehouseItem = () => {
         <div id='whtable' className='warehouseItem__table_wrapper'>
             <table className='warehouseItem__table'>
                 <tbody>
+                    <SelectableGroup
+                        className="main"
+                        clickClassName="tick"
+                        enableDeselect
+                        tolerance={0}
+                        globalMouse={false}
+                        allowClickWithoutSelected={false}
+                        duringSelection={handleSelecting}
+                        onSelectionFinish={handleSelectionFinish}
+                    >
                     {cells.row.map(row => (
-                        <tr>
+                        <tr key={row}>
                             {cells.col.map(col => (
-                                <td>{`${row}-${col}`}</td>
+                                
+                                <Box />
                             ))}
                         </tr>
                     ))}
+                    </SelectableGroup>
                 </tbody>
             </table>
         </div>
