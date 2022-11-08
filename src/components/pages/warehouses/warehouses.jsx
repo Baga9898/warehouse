@@ -1,6 +1,6 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWarehouse } from '@fortawesome/free-solid-svg-icons';
+import React                 from 'react';
+import { FontAwesomeIcon }   from '@fortawesome/react-fontawesome';
+import { faWarehouse }       from '@fortawesome/free-solid-svg-icons';
 
 import './warehouses.scss';
 
@@ -14,8 +14,6 @@ const mockWarehouses = [
   { id: '7',name: 'WH-7' },
   { id: '8',name: 'WH-8' },
 ]
-
-//TODO: Список складов вынести в отдельный компонент.
 
 const Warehouses = () => {
   return (

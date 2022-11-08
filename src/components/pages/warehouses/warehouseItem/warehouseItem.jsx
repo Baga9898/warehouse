@@ -1,12 +1,13 @@
-import React from 'react';
-import { SelectableGroup } from "react-selectable-fast";
-import Cell from './cell';
+import React                 from 'react';
+import { SelectableGroup }   from 'react-selectable-fast';
+
+import Cell                  from './cell';
+
 import './warehouseItem.scss';
 
 
 const WarehouseItem = () => {
 
-    //TODO: Вынести в хелперы.
     const createWarehouse = (cols, rows) => {
         let newArray = new Array(rows);
         let resultColumns = [];
@@ -35,7 +36,7 @@ const WarehouseItem = () => {
     };
 
     const handleSelectionFinish = (items) => {
-        console.log("finish selecting:", 'yep');
+        console.log("finish selecting:", 'Здесь нужно вывести массив выбранных ячеек');
     };
 
     return (

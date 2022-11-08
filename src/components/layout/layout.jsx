@@ -1,6 +1,6 @@
 import React             from 'react';
 import { useDispatch }   from 'react-redux';
-import SidebarMenu       from '../sidebarMenu/sidebarMenu';
+import SidebarMenu       from './sidebarMenu/sidebarMenu';
 import Footer            from './footer/footer';
 import Header            from './header/header';
 
