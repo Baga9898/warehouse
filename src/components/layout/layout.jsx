@@ -1,8 +1,9 @@
-import React             from 'react';
 import { useDispatch }   from 'react-redux';
-import SidebarMenu       from './sidebarMenu/sidebarMenu';
+import React             from 'react';
+
 import Footer            from './footer/footer';
 import Header            from './header/header';
+import SidebarMenu       from './sidebarMenu/sidebarMenu';
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();

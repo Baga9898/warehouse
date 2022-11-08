@@ -1,8 +1,8 @@
-import React                 from 'react';
-import { Link }              from "react-router-dom";
-import { useDispatch }       from 'react-redux';
-import { FontAwesomeIcon }   from '@fortawesome/react-fontawesome';
 import { faBars }            from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon }   from '@fortawesome/react-fontawesome';
+import { Link }              from 'react-router-dom';
+import { useDispatch }       from 'react-redux';
+import React                 from 'react';
 
 const Leftside = () => {
     const dispatch = useDispatch();

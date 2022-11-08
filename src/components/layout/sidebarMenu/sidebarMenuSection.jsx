@@ -1,5 +1,6 @@
-import React from 'react';
-import SidebarMenuItem from './sidebarMenuItem';
+import React             from 'react';
+
+import SidebarMenuItem   from './sidebarMenuItem';
 
 const SidebarMenuSection = ({ item }) => {
   return (

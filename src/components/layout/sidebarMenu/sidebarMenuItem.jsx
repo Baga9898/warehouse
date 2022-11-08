@@ -1,7 +1,6 @@
-import React         from 'react';
-import { NavLink }   from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
+import { NavLink }       from 'react-router-dom';
+import { useDispatch }   from 'react-redux';
+import React             from 'react';
 
 const SidebarMenuItem = ({ item }) => {
   const dispatch = useDispatch();

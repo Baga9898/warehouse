@@ -1,10 +1,9 @@
-import React                 from 'react';
 import { SelectableGroup }   from 'react-selectable-fast';
+import React                 from 'react';
 
 import Cell                  from './cell';
 
 import './warehouseItem.scss';
-
 
 const WarehouseItem = () => {
 
