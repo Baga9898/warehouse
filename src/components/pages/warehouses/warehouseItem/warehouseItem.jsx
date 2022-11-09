@@ -1,11 +1,16 @@
 import { SelectableGroup }   from 'react-selectable-fast';
-import React                 from 'react';
+import React, { useEffect }  from 'react';
 
+import { getWarehouse }      from '../../../../api/requests/warehouses';
 import Cell                  from './cell';
 
 import './warehouseItem.scss';
 
 const WarehouseItem = () => {
+
+    useEffect(() => {
+        getWarehouse(1);
+    }, [])
 
     const createWarehouse = (cols, rows) => {
         let newArray = new Array(rows);
@@ -31,11 +36,11 @@ const WarehouseItem = () => {
     const cells = (createWarehouse(35, 35));
 
     const handleSelecting = (items) => {
-        console.log("selecting:", items);
+        // console.log("selecting:", items);
     };
 
     const handleSelectionFinish = (items) => {
-        console.log("finish selecting:", 'Здесь нужно вывести массив выбранных ячеек');
+        console.log("finish selecting:", items.map(cell => `${cell.props.col}-${cell.props.row}`));
     };
 
     return (
