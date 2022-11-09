@@ -5,16 +5,12 @@ const Cell = ({ selectableRef, isSelected, isSelecting, col, row }) => {
   isSelected && console.log(`${col}-${row}`);
 
   return (
-    <td
+    <td 
+      className={isSelected 
+        ? 'isSelected' : isSelecting 
+        ? 'isSelecting' : ''
+      }
       ref={selectableRef}
-      style={{
-        background: isSelected
-          ? '#595959'
-          : isSelecting
-          ? '#adadad'
-          : '',
-        color: isSelected && '#fff'
-      }}
     >
       {`${col}-${row}`}
     </td>

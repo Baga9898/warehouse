@@ -16,6 +16,15 @@
                     background: #949494;
                     color: #fff;
                 }
+
+                &.isSelected {
+                    background: #595959;
+                    color: #fff;
+                }
+
+                &.isSelecting {
+                    background: #adadad;
+                }
             }
         }
 
