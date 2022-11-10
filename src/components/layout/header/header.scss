@@ -1,12 +1,12 @@
 .header {
-    height: 40px;
-    padding: 0 20px;
-    background: #000;
-    color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 40px;
+    padding: 0 20px;
     transition: 0.5s;
+    background: #000;
+    color: #fff;
 
     a {
         color: #fff;
@@ -18,10 +18,10 @@
 
     &__menu-icon {
         margin-right: 20px;
-        font-size: 20px;
         cursor: pointer;
-        color: rgb(131, 131, 131);
+        font-size: 20px;
         transition: 0.5s;
+        color: #838383;
 
         &:hover {
             color: #fff;
@@ -34,10 +34,10 @@
     }
 
     &__profile-icon {
-        font-size: 20px;
         cursor: pointer;
-        color: rgb(131, 131, 131);
+        font-size: 20px;
         transition: 0.5s;
+        color: #838383;
 
         &:hover {
             color: #fff;

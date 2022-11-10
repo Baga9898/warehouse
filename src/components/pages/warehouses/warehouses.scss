@@ -7,21 +7,21 @@
     }
 
     &__item {
-        width: 280px;
-        height: 180px;
-        background: rgb(160, 160, 160);
-        margin-bottom: 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        color: #fff;
+        width: 280px;
+        height: 180px;
+        margin-bottom: 20px;
+        border-radius: 5px;
         cursor: pointer;
         transition: 0.5s;
-        border-radius: 5px;
+        background: #a0a0a0;
+        color: #fff;
 
         &:hover {
-            background: rgb(77, 77, 77);
+            background: #4d4d4d;
         }
 
         svg {
