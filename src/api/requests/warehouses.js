@@ -1,22 +1,8 @@
 import { API } from '../instance';
 import { Paths } from '../constants';
 
-// export const getWarehouseCells = async (warehouseId, setCurrentCells) => {
-//     // Loader start
-//     try {
-//         await API.get(`${Paths.warehouses}/${warehouseId}`)
-//         .then(response => {
-//             setCurrentCells(response.data.warehouse.racks.map(rack => rack.rowCell));
-//         });
-//     } catch (error) {
-//         console.log('Error notification here');
-//     } finally {
-//         // Loader end
-//     }
-// }
-
 export const getWarehouseRacks = (warehouseId) => {
-    return async function(dispatch) {
+    return async (dispatch) => {
         // Loader start
         try {
             await API.get(`${Paths.warehouses}/${warehouseId}`)
