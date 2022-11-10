@@ -5,12 +5,12 @@
         tr {
 
             td {
-                min-width: 60px;
                 height: 20px;
-                background: #d3d3d3;
-                border-radius: 5px;
+                min-width: 60px;
                 padding: 2px;
+                border-radius: 5px;
                 transition: 0.5s;
+                background: #d3d3d3;
 
                 &:hover {
                     background: #949494;
@@ -29,17 +29,16 @@
         }
 
         &_wrapper {
-            overflow: auto;
             max-height: calc(100vh - 110px);
+            overflow: auto;
         }
     }
 }
 
 .selectable-selectbox {
-z-index: 9000;
-position: absolute;
-cursor: default;
-background: rgba(105, 105, 105, 0.3);
-border: 1px solid grey;
+    position: absolute;
+    z-index: 9000;
+    border: 1px solid grey;
+    background: #6969694d;
 }
   

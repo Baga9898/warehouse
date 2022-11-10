@@ -1,16 +1,23 @@
-import { SelectableGroup }   from 'react-selectable-fast';
-import React, { useEffect }  from 'react';
+import { SelectableGroup }              from 'react-selectable-fast';
+import { useDispatch, useSelector }     from 'react-redux';
+import React, { useEffect }             from 'react';
 
-import { getWarehouse }      from '../../../../api/requests/warehouses';
-import Cell                  from './cell';
+import { getWarehouseRacks }            from '../../../../api/requests/warehouses';
+import Cell                             from './cell';
 
 import './warehouseItem.scss';
 
 const WarehouseItem = () => {
+    const dispatch = useDispatch();
+    const currentRacks = useSelector(state => state.warehouse.racks);
 
     useEffect(() => {
-        getWarehouse(1);
+        dispatch(getWarehouseRacks(1));
     }, [])
+
+    const isFilledCheck = (rack) => {
+        return currentRacks.includes(rack);
+    }
 
     const createWarehouse = (cols, rows) => {
         let newArray = new Array(rows);
@@ -40,7 +47,7 @@ const WarehouseItem = () => {
     };
 
     const handleSelectionFinish = (items) => {
-        console.log("finish selecting:", items.map(cell => `${cell.props.col}-${cell.props.row}`));
+        // console.log("finish selecting:", items.map(cell => `${cell.props.col}-${cell.props.row}`));
     };
 
     return (
@@ -62,7 +69,12 @@ const WarehouseItem = () => {
                         {cells.row.map(row => (
                             <tr key={row}>
                                 {cells.col.map(col => (
-                                    <Cell key={`${row}-${col}`} col={col} row={row} />
+                                    <Cell 
+                                        key={`${row}-${col}`} 
+                                        col={col} 
+                                        row={row} 
+                                        filled={isFilledCheck(`${col}-${row}`)}
+                                    />
                                 ))}
                             </tr>
                         ))}
