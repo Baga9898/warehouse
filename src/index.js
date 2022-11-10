@@ -1,19 +1,21 @@
-import ReactDOM                      from 'react-dom';
 import { BrowserRouter as Router }   from 'react-router-dom';
 import { Provider }                  from 'react-redux';
+import ReactDOM                      from 'react-dom/client';
 
-import App                           from './components/app/app';
 import { store }                     from './redux/store';
+import App                           from './components/app/app';
 
 import './index.scss';
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
     <Provider store={store}>
         <Router>
             <App />
         </Router> 
-    </Provider>,
-document.getElementById('root'));
+    </Provider>
+);
 
 const devMode = process.env.NODE_ENV === 'development';
 
