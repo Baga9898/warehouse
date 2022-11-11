@@ -5,12 +5,11 @@ import { getWarehouseRacks }          from '../../../../api/requests/warehouses'
 
 import { 
     createWarehouse, 
-    isRackFilledCheck,
 }                                     from '../../../../utils/helpers/warehouse.helpers';
 import WHSSelectableGroup             from '../../../shared/whsSelectableGroup/whsSelectableGroup';
-import Cell                           from './cell';
 
 import './warehouseItem.scss';
+import WarehouseTable from './warehouseTable';
 
 const WarehouseItem = () => {
     const dispatch = useDispatch();
@@ -27,22 +26,7 @@ const WarehouseItem = () => {
         <h1>warehouseItem</h1>
         <div className='warehouseItem__table_wrapper'>
             <WHSSelectableGroup>
-                <table className='warehouseItem__table'>
-                    <tbody>
-                        {cells.row.map(row => (
-                            <tr key={row}>
-                                {cells.col.map(col => (
-                                    <Cell 
-                                        key={`${row}-${col}`} 
-                                        col={col} 
-                                        row={row} 
-                                        filled={isRackFilledCheck(currentRacks, `${col}-${row}`)}
-                                    />
-                                ))}
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                <WarehouseTable cells={cells} currentRacks={currentRacks}/>
             </WHSSelectableGroup>
         </div>
     </section>
