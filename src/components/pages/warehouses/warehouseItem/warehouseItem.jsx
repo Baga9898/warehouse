@@ -1,26 +1,19 @@
-import { useDispatch, useSelector }   from 'react-redux';
-import React, { useEffect, useState }           from 'react';
+import { useDispatch }         from 'react-redux';
+import React, { useEffect }    from 'react';
 
-import { getWarehouseRacks }          from '../../../../api/requests/warehouses';
-import WarehouseTable                 from './warehouseTable';
-import WHSSelectableGroup             from '../../../shared/whsSelectableGroup/whsSelectableGroup';
-
-import { createWarehouse }            from '../../../../utils/helpers/warehouse.helpers';
+import { getWarehouseRacks }   from '../../../../api/requests/warehouses';
+import ModeSelect              from '../../../shared/modeSelect/modeSelect';
+import WarehouseTable          from './warehouseTable';
+import WHSSelectableGroup      from '../../../shared/whsSelectableGroup/whsSelectableGroup';
 
 import './warehouseItem.scss';
-import ModeSelect from '../../../shared/modeSelect/modeSelect';
 
 const WarehouseItem = () => {
-    const [isModeVisible, setIsModeVisible] = useState(false);
-
     const dispatch = useDispatch();
-    const currentRacks = useSelector(state => state.warehouse.racks);
 
     useEffect(() => {
         dispatch(getWarehouseRacks(1));
     }, [])
-
-    const cells = (createWarehouse(19, 19));
 
     return (
     <section className='warehouseItem'>
@@ -32,7 +25,7 @@ const WarehouseItem = () => {
         </div>
         <div className='warehouseItem__table_wrapper'>
             <WHSSelectableGroup>
-                <WarehouseTable cells={cells} currentRacks={currentRacks}/>
+                <WarehouseTable />
             </WHSSelectableGroup>
         </div>
     </section>

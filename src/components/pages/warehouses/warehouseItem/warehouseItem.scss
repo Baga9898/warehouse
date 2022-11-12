@@ -31,6 +31,25 @@
         &_wrapper {
             max-height: calc(100vh - 110px);
             overflow: auto;
+
+            .main {
+
+                &.delete {
+
+                    .selectable-selectbox {
+                        border: 1px solid #923a3a;
+                        background: #923a3a70 ;
+                    }
+                } 
+
+                &.edit {
+
+                    .selectable-selectbox {
+                        border: 1px solid #968e40;
+                        background: #b6b26070 ;
+                    }
+                }
+            }
         }
     }
 }

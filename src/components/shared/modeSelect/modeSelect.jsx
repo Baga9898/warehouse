@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import { useDispatch, useSelector }   from 'react-redux';
+import React, { useState }            from 'react';
 
 import './modeSelect.scss'
 
 const ModeSelect = ({ items }) => {
-    const [currentItem, setCurrentItem] = useState(items[0]);
     const [menuIsVisible, setMenuIsVisible] = useState(false);
 
+    const dispatch = useDispatch();
+    const currentItem = useSelector(state => state.warehouse.mode);
+
     const setMode = (item) => {
-        setCurrentItem(item);
+        dispatch({ type: 'SET_MODE', payload: item})
     }
 
     const showMode = () => {
@@ -20,7 +23,7 @@ const ModeSelect = ({ items }) => {
             {menuIsVisible &&
                 <ul>
                     {items.map(item => (
-                        <li onClick={() => setMode(item)}>{item}</li>
+                        <li key={item} onClick={() => setMode(item)}>{item}</li>
                     ))}
                 </ul>
             }
