@@ -95,6 +95,15 @@ section h1 {
     font-weight: 900;
 }
 
+.page {
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
 /*Scrollbar*/
 
 ::-webkit-scrollbar-button {
