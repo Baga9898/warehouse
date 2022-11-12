@@ -34,12 +34,27 @@
 
             .main {
 
+                .selectable-selectbox {
+                    position: absolute;
+                    z-index: 9000;
+                    border: 1px solid grey;
+                    background: #6969694d;
+                }
+
                 &.delete {
 
                     .selectable-selectbox {
                         border: 1px solid #923a3a;
-                        background: #923a3a70 ;
+                        background: #984e4e70 ;
                     }
+
+                    td {
+
+                        &.isSelecting {
+                            background: #c96e6ea0;
+                        }
+                    }
+
                 } 
 
                 &.edit {
@@ -52,12 +67,5 @@
             }
         }
     }
-}
-
-.selectable-selectbox {
-    position: absolute;
-    z-index: 9000;
-    border: 1px solid grey;
-    background: #6969694d;
 }
   

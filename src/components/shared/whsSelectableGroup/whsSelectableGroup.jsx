@@ -9,6 +9,7 @@ import {
 
 const WHSSelectableGroup = ({ children }) => {
   const selectMode = useSelector(state => state.warehouse.mode);
+  
   return (
     <SelectableGroup
         className={'main '  + (selectMode === 'Delete'
