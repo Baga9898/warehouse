@@ -1,3 +1,5 @@
+import { setWarehouseRacks } from './../../api/requests/warehouses';
+
 export const isRackFilledCheck = (currentRacks, rack) => {
     return currentRacks.includes(rack);
 }
@@ -29,4 +31,5 @@ export const handleSelecting = (items) => {
 
 export const handleSelectionFinish = (items) => {
     // console.log("finish selecting:", items.map(cell => `${cell.props.col}-${cell.props.row}`));
+    setWarehouseRacks(1, items.map(cell => `${cell.props.col}-${cell.props.row}`));
 };

@@ -14,7 +14,7 @@ export const warehouseReducer = (state = defaultState, action) => {
             return {...state, racks: [...state.racks, ...action.payload]};
 
         case GET_WAREHOUSES:
-            return {...state, warehouses: [...state.warehouses, ...action.payload]};
+            return {...state, warehouses: [...action.payload]};
 
         case SET_MODE:
             return {...state, mode: action.payload};
