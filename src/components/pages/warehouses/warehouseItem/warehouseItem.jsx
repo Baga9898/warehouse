@@ -2,14 +2,12 @@ import { useDispatch, useSelector }   from 'react-redux';
 import React, { useEffect }           from 'react';
 
 import { getWarehouseRacks }          from '../../../../api/requests/warehouses';
-
-import { 
-    createWarehouse, 
-}                                     from '../../../../utils/helpers/warehouse.helpers';
+import WarehouseTable                 from './warehouseTable';
 import WHSSelectableGroup             from '../../../shared/whsSelectableGroup/whsSelectableGroup';
 
+import { createWarehouse }            from '../../../../utils/helpers/warehouse.helpers';
+
 import './warehouseItem.scss';
-import WarehouseTable from './warehouseTable';
 
 const WarehouseItem = () => {
     const dispatch = useDispatch();

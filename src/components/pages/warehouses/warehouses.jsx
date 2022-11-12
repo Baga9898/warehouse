@@ -1,6 +1,6 @@
-import { faWarehouse }       from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon }   from '@fortawesome/react-fontawesome';
 import React                 from 'react';
+
+import WarehousesList from './warehousesList';
 
 import './warehouses.scss';
 
@@ -19,14 +19,7 @@ const Warehouses = () => {
   return (
     <section className='warehouses'>
       <h1>Warehouses</h1>
-      <div className='warehouses__list'>
-        {mockWarehouses.map(warehouse => (
-          <div key={warehouse.name} className='warehouses__item'>
-            <FontAwesomeIcon icon={faWarehouse} />
-            <p>{warehouse.name}</p>
-          </div>
-        ))}
-      </div>
+      <WarehousesList warehouses={mockWarehouses} />
     </section>
   )
 }
