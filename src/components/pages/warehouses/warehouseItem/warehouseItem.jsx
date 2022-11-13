@@ -1,4 +1,5 @@
 import { useDispatch }         from 'react-redux';
+import { useParams }           from 'react-router-dom';
 import React, { useEffect }    from 'react';
 
 import { getWarehouseRacks }   from '../../../../api/requests/warehouses';
@@ -10,9 +11,11 @@ import './warehouseItem.scss';
 
 const WarehouseItem = () => {
     const dispatch = useDispatch();
+    const {id} = useParams();
 
     useEffect(() => {
-        dispatch(getWarehouseRacks(1));
+        dispatch({ type: 'SET_DEFAULT_WAREHOUSE' });
+        dispatch(getWarehouseRacks(id));
     }, [])
 
     return (

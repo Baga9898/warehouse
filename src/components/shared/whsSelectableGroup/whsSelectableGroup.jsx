@@ -17,7 +17,7 @@ const WHSSelectableGroup = ({ children }) => {
                 ? 'edit' : '')
         }
         clickClassName="tick"
-        enableDeselect
+        // enableDeselect
         tolerance={0}
         globalMouse={false}
         allowClickWithoutSelected={false}

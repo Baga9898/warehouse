@@ -43,6 +43,10 @@
 
                 &.delete {
 
+                    .isSelected {
+                        background: #a75454;
+                    }
+
                     .selectable-selectbox {
                         border: 1px solid #923a3a;
                         background: #984e4e70 ;
