@@ -5,6 +5,6 @@ import WarehouseItem   from './../pages/warehouses/warehouseItem/warehouseItem';
 export const routes = [
     {path: '/', element: <Home />},
     {path: '/warehouses', element: <Warehouses />},
-    {path: '/test', element: <WarehouseItem />},
+    {path: '/warehouses/:id', element: <WarehouseItem />},
     {path: '*', element: <div>404</div>},
 ]

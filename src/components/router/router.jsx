@@ -7,7 +7,7 @@ const WHSRouter = () => {
   return (
     <Routes>
       {routes.map(route => (
-        <Route key={route.path} exact path={route.path} element={route.element} />
+        <Route key={route.path} path={route.path} element={route.element} />
       ))}
     </Routes>
   )
