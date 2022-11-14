@@ -10,7 +10,7 @@ export const getWarehouses = () => {
                 dispatch({ type: 'GET_WAREHOUSES', payload:  response.data});
             })
         } catch {
-            console.log('Error notification here');
+            console.log('Error notification here get warehouses');
         } finally {
             // Loader end
         }
@@ -26,7 +26,7 @@ export const getWarehouseRacks = (warehouseId) => {
                 dispatch({ type: 'GET_RACKS', payload: response.data.racks });
             });
         } catch (error) {
-            console.log('Error notification here');
+            console.log('Error notification here get racks');
         } finally {
             // Loader end
         }
@@ -42,6 +42,32 @@ export const setWarehouseRacks = async (warehouseId, newRacks) => {
             })
         })
     } catch (error) {
-        console.log('Error notification here');
+        console.log('Error notification here ste racks');
+    }
+}
+
+export const deleteRacks = (warehouseId, deleteRacks) => {
+    return async (dispatch) => {
+        try {
+            await API.get(`${Paths.warehouse}/${warehouseId}`)
+            .then(response => {
+                const allRacks = response.data.racks;
+                const actuallyRacks = allRacks.reduce((acc, item) => {
+                    if (!deleteRacks.includes(item)) acc.push(item);
+                    return acc;
+                }, []);
+    
+                API.put(`${Paths.warehouse}/${warehouseId}`, {
+                    racks: actuallyRacks,
+                })
+                .then(() => {
+                    console.log(actuallyRacks);
+                    dispatch({ type: 'DELETE_RACKS', payload: actuallyRacks });
+                })
+
+            })
+        } catch (error) {
+            console.log('Error notification here delete');
+        }
     }
 }
