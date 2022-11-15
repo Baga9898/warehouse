@@ -9,8 +9,6 @@ import { isRackFilledCheck }   from '../../../../utils/helpers/warehouse.helpers
 const WarehouseTable = () => {
     const currentRacks = useSelector(state => state.warehouse.racks);
 
-    console.log(currentRacks);
-
     const cells = (createWarehouse(19, 19));
 
     return (

@@ -7,7 +7,7 @@ const Cell = ({ selectableRef, isSelected, isSelecting, col, row, filled }) => {
 
   return (
     <td 
-      className={isSelected || filled 
+      className={filled 
         ? 'isSelected' : isSelecting 
         ? 'isSelecting' : ''
       }

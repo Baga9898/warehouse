@@ -33,21 +33,31 @@ export const getWarehouseRacks = (warehouseId) => {
     }
 }
 
-export const setWarehouseRacks = async (warehouseId, newRacks) => {
-    try {
-        await API.get(`${Paths.warehouse}/${warehouseId}`)
-        .then(response => {
-            API.put(`${Paths.warehouse}/${warehouseId}`, {
-                racks: [...new Set([...response.data.racks, ...newRacks])],
+export const setWarehouseRacks = (warehouseId, newRacks) => {
+    return async (dispatch) => {
+        // Loader start
+        try {
+            await API.get(`${Paths.warehouse}/${warehouseId}`)
+            .then(response => {
+                const actuallyRacks = [...new Set([...response.data.racks, ...newRacks])];
+                API.put(`${Paths.warehouse}/${warehouseId}`, {
+                    racks: actuallyRacks,
+                })
+                .then(() => {
+                    dispatch({ type: 'SET_RACKS', payload:  actuallyRacks});
+                })
             })
-        })
-    } catch (error) {
-        console.log('Error notification here ste racks');
+        } catch (error) {
+            console.log('Error notification here set racks');
+        } finally{
+            // Loader end
+        }
     }
 }
 
 export const deleteRacks = (warehouseId, deleteRacks) => {
     return async (dispatch) => {
+        // Loader start
         try {
             await API.get(`${Paths.warehouse}/${warehouseId}`)
             .then(response => {
@@ -61,13 +71,14 @@ export const deleteRacks = (warehouseId, deleteRacks) => {
                     racks: actuallyRacks,
                 })
                 .then(() => {
-                    console.log(actuallyRacks);
                     dispatch({ type: 'DELETE_RACKS', payload: actuallyRacks });
                 })
 
             })
         } catch (error) {
             console.log('Error notification here delete');
+        } finally {
+            // Loader end
         }
     }
 }
