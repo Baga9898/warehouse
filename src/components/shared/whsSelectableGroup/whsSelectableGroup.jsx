@@ -2,9 +2,8 @@ import { SelectableGroup }                  from 'react-selectable-fast';
 import { useSelector, useDispatch }         from 'react-redux';
 import React                                from 'react';
 
-import * as MODES from '../modeSelect/selectModes';
-
-import { deleteRacks, setWarehouseRacks }   from '../../../api/requests/warehouses';
+import { deleteRacks, setWarehouseRacks }   from '../../../api/requests/racks';
+import * as MODES                           from '../modeSelect/selectModes';
 
 const WHSSelectableGroup = ({ children }) => {
   const dispatch = useDispatch();
@@ -30,8 +29,8 @@ const WHSSelectableGroup = ({ children }) => {
   return (
     <SelectableGroup
         className={'main '  + (isDeleteMode
-                ? 'delete' : isEditMode 
-                ? 'edit' : '')
+          ? 'delete' : isEditMode 
+          ? 'edit' : '')
         }
         disabled={false}
         resetOnStart={true}

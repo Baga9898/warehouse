@@ -2,7 +2,7 @@ import { useDispatch }         from 'react-redux';
 import { useParams }           from 'react-router-dom';
 import React, { useEffect }    from 'react';
 
-import { getWarehouseRacks }   from '../../../../api/requests/warehouses';
+import { getWarehouseRacks }   from '../../../../api/requests/racks';
 import ModeSelect              from '../../../shared/modeSelect/modeSelect';
 import WarehouseTable          from './warehouseTable';
 import WHSSelectableGroup      from '../../../shared/whsSelectableGroup/whsSelectableGroup';

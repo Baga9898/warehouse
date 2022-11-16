@@ -1,7 +1,7 @@
 import { useDispatch, useSelector }   from 'react-redux';
 import React, { useState }            from 'react';
 
-import * as MODES from './selectModes';
+import * as MODES                     from './selectModes';
 
 import './modeSelect.scss';
 
