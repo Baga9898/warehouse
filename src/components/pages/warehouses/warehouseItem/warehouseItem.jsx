@@ -24,7 +24,7 @@ const WarehouseItem = () => {
         <div className='page__header'>
             <h1>warehouseItem</h1>
             <div>
-                <ModeSelect items={[ 'Create', 'Delete', 'Edit' ]}/>
+                <ModeSelect />
             </div>
         </div>
         <div className='warehouseItem__table_wrapper'>

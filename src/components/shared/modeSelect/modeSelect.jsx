@@ -1,9 +1,11 @@
 import { useDispatch, useSelector }   from 'react-redux';
 import React, { useState }            from 'react';
 
-import './modeSelect.scss'
+import * as MODES from './selectModes';
 
-const ModeSelect = ({ items }) => {
+import './modeSelect.scss';
+
+const ModeSelect = () => {
     const [menuIsVisible, setMenuIsVisible] = useState(false);
 
     const dispatch = useDispatch();
@@ -22,7 +24,7 @@ const ModeSelect = ({ items }) => {
             <p>Mode: {currentItem}</p>
             {menuIsVisible &&
                 <ul>
-                    {items.map(item => (
+                    {MODES.allModes.map(item => (
                         <li key={item} onClick={() => setMode(item)}>{item}</li>
                     ))}
                 </ul>
