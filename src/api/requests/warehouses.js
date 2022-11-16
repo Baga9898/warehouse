@@ -16,3 +16,19 @@ export const getWarehouses = () => {
         }
     }
 }
+
+export const getCurrentWarehouse = (id) => {
+    return async (dispatch) => {
+        // Loader start
+        try {
+            await API.get(`${Paths.warehouse}/${id}`)
+            .then((response) => {
+                dispatch({ type: 'GET_CURRENT_WAREHOUSE', payload: response.data});
+            })
+        } catch (error) {
+            console.log('Error notification here get current warehouse');
+        } finally {
+            // Loader end
+        }
+    }
+}

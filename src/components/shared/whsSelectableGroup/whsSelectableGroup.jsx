@@ -8,7 +8,7 @@ import * as MODES                           from '../modeSelect/selectModes';
 const WHSSelectableGroup = ({ children }) => {
   const dispatch = useDispatch();
   const currentMode = useSelector(state => state.warehouse.mode);
-  const currentWarehouseId = useSelector(state => state.warehouse.currentWarehouseId);
+  const currentWarehouse = useSelector(state => state.warehouse.currentWarehouse);
 
   const isCreateMode = currentMode === MODES.createMode;
   const isDeleteMode = currentMode === MODES.deleteMode;
@@ -18,9 +18,9 @@ const WHSSelectableGroup = ({ children }) => {
     const selectedRacks = items.map(cell => `${cell.props.col}-${cell.props.row}`);
 
     if (isCreateMode) {
-      dispatch(setWarehouseRacks(currentWarehouseId, selectedRacks));
+      dispatch(setWarehouseRacks(currentWarehouse.id, selectedRacks));
     } else if (isDeleteMode) {
-      dispatch(deleteRacks(currentWarehouseId, selectedRacks))
+      dispatch(deleteRacks(currentWarehouse.id, selectedRacks));
     } else {
       return;
     }

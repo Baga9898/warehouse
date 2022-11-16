@@ -13,8 +13,8 @@ const WarehousesList = ({ warehouses }) => {
   return (
     <div className='warehouses__list'>
         {warehouses.map(warehouse => (
-          <Link to={`${Paths.warehouses}/${warehouse.id}`}>
-            <div key={warehouse.name} className='warehouses__item' style={{backgroundImage: `url(${warehouse.image})`}}>
+          <Link to={`${Paths.warehouses}/${warehouse.id}`} key={warehouse.name}>
+            <div className='warehouses__item' style={warehouse.image && {backgroundImage: `url(${warehouse.image})`}}>
               <div className={'warehouses__item-overlay ' + (
                   warehouse.leftovers > warehouse.capacity ? 'a-lot-of' : ''
                 )}
