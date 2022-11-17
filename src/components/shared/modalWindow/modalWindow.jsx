@@ -20,8 +20,8 @@ const ModalWindow = ({ open, onClose, actionName, children, footerContent }) => 
 
     if (open) {
         return createPortal(
-            <div className='modal__background' onClick={onClose}>
-                <div className='modal__wrapper'>
+            <div className='modal__background ' onClick={onClose}>
+                <div className='modal__wrapper ' onClick={(e) => e.stopPropagation()}>
                     <div className='modal__header'>
                         <h3>{actionName}</h3>
                         <button onClick={onClose}>

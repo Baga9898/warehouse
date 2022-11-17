@@ -88,3 +88,27 @@
         }
     }
 }
+
+.createWarehouse__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.createWarehouse__footer {
+    height: 100%;
+    display: flex;
+
+    button {
+        width: 100%;
+        background: transparent;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 600;
+        transition: 0.5s;
+
+        &:hover {
+            background: #000;
+            color: #fff;
+        }
+    }
+}
