@@ -1,8 +1,15 @@
 import React from 'react';
+import PageTamplate from '../../shared/pageTemplate/pageTamplate';
 
 const Home = () => {
   return (
-    <h1>Home</h1>
+    <PageTamplate
+      pageName={'Home'}
+      extraClassName='home'
+      rightsideComponent={null}
+    >
+
+    </PageTamplate>
   )
 }
 

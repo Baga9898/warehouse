@@ -5,11 +5,11 @@ import React, { useEffect }           from 'react';
 import { getCurrentWarehouse }        from '../../../../api/requests/warehouses';
 import { getWarehouseRacks }          from '../../../../api/requests/racks';
 import ModeSelect                     from '../../../shared/modeSelect/modeSelect';
+import PageTamplate                   from '../../../shared/pageTemplate/pageTamplate';
 import WarehouseTable                 from './warehouseTable';
 import WHSSelectableGroup             from '../../../shared/whsSelectableGroup/whsSelectableGroup';
 
 import './warehouseItem.scss';
-import PageTamplate from '../../../shared/pageTemplate/pageTamplate';
 
 const WarehouseItem = () => {
     const dispatch = useDispatch();
