@@ -32,3 +32,20 @@ export const getCurrentWarehouse = (id) => {
         }
     }
 }
+
+export const addWarehouse = (warehouse) => {
+    return async (dispatch) => {
+        // Loader start
+        try {
+            await API.post(`${Paths.warehouse}`, { ...warehouse })
+            .then(() => {
+                console.log(...warehouse);
+                dispatch({ type: 'ADD_WAREHOUSE', payload: { ...warehouse } });
+            })
+        } catch (error) {
+            console.log('Error notification here get add warehouse');
+        } finally {
+            // Loader end
+        }
+    }
+}

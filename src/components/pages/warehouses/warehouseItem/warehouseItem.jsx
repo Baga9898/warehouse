@@ -9,6 +9,7 @@ import WarehouseTable                 from './warehouseTable';
 import WHSSelectableGroup             from '../../../shared/whsSelectableGroup/whsSelectableGroup';
 
 import './warehouseItem.scss';
+import PageTamplate from '../../../shared/pageTemplate/pageTamplate';
 
 const WarehouseItem = () => {
     const dispatch = useDispatch();
@@ -23,19 +24,17 @@ const WarehouseItem = () => {
     }, [])
 
     return (
-    <section className='warehouseItem'>
-        <div className='page__header'>
-            <h1>{currentWarehouse.name}</h1>
-            <div>
-                <ModeSelect />
+        <PageTamplate
+            pageName={currentWarehouse.name}
+            extraClassName='warehouseItem'
+            rightsideComponent={<ModeSelect />}
+        >
+            <div className='warehouseItem__table_wrapper'>
+                <WHSSelectableGroup>
+                    <WarehouseTable />
+                </WHSSelectableGroup>
             </div>
-        </div>
-        <div className='warehouseItem__table_wrapper'>
-            <WHSSelectableGroup>
-                <WarehouseTable />
-            </WHSSelectableGroup>
-        </div>
-    </section>
+        </PageTamplate>
     )
 }
 
