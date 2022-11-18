@@ -4,11 +4,11 @@ const defaultState = {
     warehouses: [],
 }
 
-const ADD_WAREHOUSE            = 'ADD_WAREHOUSE';
-const GET_CURRENT_WAREHOUSE    = 'GET_CURRENT_WAREHOUSE';
-const GET_WAREHOUSES           = 'GET_WAREHOUSES';
-const SET_DEFAULT_WAREHOUSE    = 'SET_DEFAULT_WAREHOUSE';
-const SET_MODE                 = 'SET_MODE';
+const ADD_WAREHOUSE              = 'ADD_WAREHOUSE';
+const GET_CURRENT_WAREHOUSE      = 'GET_CURRENT_WAREHOUSE';
+const GET_WAREHOUSES             = 'GET_WAREHOUSES';
+const SET_DEFAULT_WAREHOUSE      = 'SET_DEFAULT_WAREHOUSE';
+const SET_MODE                   = 'SET_MODE';
 
 export const warehouseReducer = (state=defaultState, action) => {
     switch (action.type) {
