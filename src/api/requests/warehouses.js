@@ -39,11 +39,10 @@ export const addWarehouse = (warehouse) => {
         try {
             await API.post(`${Paths.warehouse}`, { ...warehouse })
             .then(() => {
-                console.log(...warehouse);
                 dispatch({ type: 'ADD_WAREHOUSE', payload: warehouse });
             })
         } catch (error) {
-            console.log('Error notification here get add warehouse');
+            console.log(error);
         } finally {
             // Loader end
         }

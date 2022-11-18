@@ -5,7 +5,7 @@ import React, { useState }   from 'react';
 import { addWarehouse }      from './../../../../api/requests/warehouses';
 import FormInput             from '../../../shared/formInput/formInput';
 
-const CreateForm = () => {
+const CreateForm = ({ setIsCreateModalOpen }) => {
     const dispatch = useDispatch();
     const [warehouseForm, setWarehouseForm] = useState({
         name: '',
@@ -20,6 +20,7 @@ const CreateForm = () => {
 
     const createWarehouse = () => {
         dispatch(addWarehouse(warehouseForm));
+        setIsCreateModalOpen(false);
     }
 
   return (

@@ -34,7 +34,7 @@ const Warehouses = () => {
                 onClose={() => setIsCreateModalOpen(false)}
                 actionName='Create warehouse'
             >
-                <CreateForm />
+                <CreateForm setIsCreateModalOpen={setIsCreateModalOpen}/>
             </ModalWindow>
         </>
     )

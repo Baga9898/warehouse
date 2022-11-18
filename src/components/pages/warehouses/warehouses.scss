@@ -3,14 +3,13 @@
     &__list {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
     }
 
     &__item {
         position: relative;
         width: 280px;
         height: 180px;
-        margin-bottom: 20px;
+        margin: 7px;
         border-radius: 5px;
         cursor: pointer;
         transition: 0.5s;
