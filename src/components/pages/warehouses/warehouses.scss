@@ -26,6 +26,14 @@
 
             &:hover {
 
+                .warehouses__item {
+                    scale: 1.1;
+
+                    &-overlay {
+                        background: #4d4d4dd4;
+                    }
+                }
+
                 .warehouses__item-actions {
         
                     svg {
