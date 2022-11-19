@@ -5,6 +5,7 @@ const defaultState = {
 }
 
 const ADD_WAREHOUSE              = 'ADD_WAREHOUSE';
+const DELETE_WAREHOUSE           = 'DELETE_WAREHOUSE';
 const GET_CURRENT_WAREHOUSE      = 'GET_CURRENT_WAREHOUSE';
 const GET_WAREHOUSES             = 'GET_WAREHOUSES';
 const SET_DEFAULT_WAREHOUSE      = 'SET_DEFAULT_WAREHOUSE';
@@ -14,6 +15,9 @@ export const warehouseReducer = (state=defaultState, action) => {
     switch (action.type) {
         case ADD_WAREHOUSE:
             return {...state, warehouses: [...state.warehouses, action.payload]};
+
+        case DELETE_WAREHOUSE:
+            return {...state, warehouses: state.warehouses.filter(warehouse => warehouse.id !== action.payload)};
 
         case GET_CURRENT_WAREHOUSE:
             return {...state, currentWarehouse: action.payload};

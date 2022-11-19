@@ -48,3 +48,19 @@ export const addWarehouse = (warehouse) => {
         }
     }
 }
+
+export const deleteWarehouse = (id) => {
+    return async (dispatch) => {
+        // Loader start
+        try {
+            await API.delete(`${Paths.warehouse}/${id}`)
+            .then(() => {
+                dispatch({ type: 'DELETE_WAREHOUSE', payload: id });
+            })
+        } catch (error) {
+            console.log(error);
+        } finally {
+            // Loader end
+        }
+    }
+}
