@@ -38,8 +38,8 @@ export const addWarehouse = (warehouse) => {
         // Loader start
         try {
             await API.post(`${Paths.warehouse}`, { ...warehouse })
-            .then(() => {
-                dispatch({ type: 'ADD_WAREHOUSE', payload: warehouse });
+            .then((response) => {
+                dispatch({ type: 'ADD_WAREHOUSE', payload: response.data });
             })
         } catch (error) {
             console.log(error);
