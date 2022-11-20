@@ -2,8 +2,8 @@ import { faCircleInfo }      from '@fortawesome/free-solid-svg-icons';
 import { useDispatch }       from 'react-redux';
 import React, { useState }   from 'react';
 
-import { addWarehouse }      from './../../../../api/requests/warehouses';
-import FormInput             from '../../../shared/formInput/formInput';
+import { addWarehouse }      from '../../../../../api/requests/warehouses';
+import FormInput             from '../../../../shared/formInput/formInput';
 
 import './createForm.scss';
 
@@ -20,9 +20,13 @@ const CreateForm = ({ setIsCreateModalOpen }) => {
         racks: [],
     });
 
+    const closeCreateModal = () => {
+        setIsCreateModalOpen(false);
+    }
+
     const createWarehouse = () => {
         dispatch(addWarehouse(warehouseForm));
-        setIsCreateModalOpen(false);
+        closeCreateModal();
     }
 
   return (
@@ -55,8 +59,8 @@ const CreateForm = ({ setIsCreateModalOpen }) => {
                 value={warehouseForm.adress}
             />
         </div>
-        <div className='createWarehouse__footer'>
-            <button onClick={() => setIsCreateModalOpen(false)}>Cancel</button>
+        <div className='warehouseModal__footer'>
+            <button onClick={closeCreateModal}>Cancel</button>
             <button onClick={createWarehouse}>Create</button>
         </div>
     </>

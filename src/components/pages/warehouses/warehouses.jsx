@@ -8,7 +8,7 @@ import WarehousesHeaderRightside       from './warehouseItem/warehousesHeaderRig
 import WarehousesList                  from './warehousesList';
 
 import './warehouses.scss';
-import CreateForm from './warehouseForms/createForm';
+import CreateForm from './warehouseForms/create/createForm';
 
 const Warehouses = () => {
     const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
@@ -19,6 +19,10 @@ const Warehouses = () => {
     useEffect(() => {
         dispatch(getWarehouses());
     }, []);
+
+    const closeCreateModal = () => {
+        setIsCreateModalOpen(false);
+    }
 
     return (
         <>
@@ -31,7 +35,7 @@ const Warehouses = () => {
             </PageTamplate>
             <ModalWindow 
                 open={isCreateModalOpen} 
-                onClose={() => setIsCreateModalOpen(false)}
+                onClose={closeCreateModal}
                 actionName='Create warehouse'
             >
                 <CreateForm setIsCreateModalOpen={setIsCreateModalOpen}/>
