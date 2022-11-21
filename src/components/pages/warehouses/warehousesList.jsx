@@ -12,24 +12,35 @@ import { deleteWarehouse }   from '../../../api/requests/warehouses';
 import { Paths }             from '../../../api/constants';
 import DeleteForm            from './warehouseForms/delete/deleteForm';
 import ModalWindow           from '../../shared/modalWindow/modalWindow';
+import UpdateForm            from './warehouseForms/update/updateForm';
 
 const WarehousesList = ({ warehouses }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [chosenWarehouseId, setChosenWarehouseId] = useState(null);
   const dispatch = useDispatch();
 
   const openDeleteModal = (id) => {
     setChosenWarehouseId(id);
-    setIsDeleteModalOpen(true);
+    openCloseModal(setIsDeleteModalOpen, true);
   }
 
-  const closeDeleteModal = () => {
-    setIsDeleteModalOpen(false);
+  const openUpdateWarehouse = (id) => {
+    setChosenWarehouseId(id);
+    openCloseModal(setIsUpdateModalOpen, true);
+  }
+
+  const openCloseModal = (callback, isOpen) => {
+    callback(isOpen);
   }
 
   const deleteChosenWarehouse = () => {
     dispatch(deleteWarehouse(chosenWarehouseId));
-    closeDeleteModal();
+    openCloseModal(setIsDeleteModalOpen, false);
+  }
+
+  const updateChosenWarehouse = () => {
+    console.log('yep');
   }
 
   return (
@@ -52,17 +63,24 @@ const WarehousesList = ({ warehouses }) => {
               </div>
             </Link>
             <div className='warehouses__item-actions'>
-              <FontAwesomeIcon icon={faPencil} />
+              <FontAwesomeIcon icon={faPencil} onClick={() => openUpdateWarehouse(warehouse.id)}/>
               <FontAwesomeIcon icon={faTrash} onClick={() => openDeleteModal(warehouse.id)}/>
             </div>
           </div>
         ))}
         <ModalWindow 
           open={isDeleteModalOpen}
-          onClose={closeDeleteModal}
+          onClose={() => openCloseModal(setIsDeleteModalOpen, false)}
           actionName='Delete warehouse'
         >
-          <DeleteForm closeDeleteModal={closeDeleteModal} deleteChosenWarehouse={deleteChosenWarehouse}/>
+          <DeleteForm closeDeleteModal={() => openCloseModal(setIsDeleteModalOpen, false)} deleteChosenWarehouse={deleteChosenWarehouse}/>
+        </ModalWindow>
+        <ModalWindow
+          open={isUpdateModalOpen}
+          onClose={() => openCloseModal(setIsUpdateModalOpen, false)}
+          actionName='Update warehouse'
+        >
+          <UpdateForm closeUpdateModal={() => openCloseModal(setIsUpdateModalOpen, false)} updateChosenWarehouse={updateChosenWarehouse} />
         </ModalWindow>
     </div>
   )
