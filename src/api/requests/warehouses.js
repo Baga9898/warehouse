@@ -64,3 +64,22 @@ export const deleteWarehouse = (id) => {
         }
     }
 }
+
+export const updateWarehouse = (id, changedValues) => {
+    return async (dispatch) => {
+        // Loader start
+        try {
+            await API.put(`${Paths.warehouse}/${id}`, {
+                name: changedValues.name,
+                adress: changedValues.adress,
+            })
+            .then((response) => {
+                dispatch({ type: 'UPDATE_WAREHOUSE', payload: response.data})
+            })
+        } catch (error) {
+            console.error(error);
+        } finally {
+            // Loader end
+        }
+    }
+}

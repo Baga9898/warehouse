@@ -1,12 +1,20 @@
+import { useDispatch }       from 'react-redux';
 import React, { useState }   from 'react';
 
+import { updateWarehouse }   from './../../../../../api/requests/warehouses';
 import FormInput             from '../../../../shared/formInput/formInput';
 
-const UpdateForm = ({ closeUpdateModal, updateChosenWarehouse }) => {
+const UpdateForm = ({ closeUpdateModal, chosenWarehouseId }) => {
+    const dispatch = useDispatch();
     const [warehouseForm, setWarehouseForm] = useState({
         name: '',
         adress: '',
     });
+
+    const updateChosenWarehouse = () => {
+        dispatch(updateWarehouse(chosenWarehouseId, warehouseForm));
+        closeUpdateModal();
+      }
 
   return (
     <>

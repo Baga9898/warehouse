@@ -39,10 +39,6 @@ const WarehousesList = ({ warehouses }) => {
     openCloseModal(setIsDeleteModalOpen, false);
   }
 
-  const updateChosenWarehouse = () => {
-    console.log('yep');
-  }
-
   return (
     <div className='warehouses__list'>
         {warehouses.map(warehouse => (
@@ -80,7 +76,7 @@ const WarehousesList = ({ warehouses }) => {
           onClose={() => openCloseModal(setIsUpdateModalOpen, false)}
           actionName='Update warehouse'
         >
-          <UpdateForm closeUpdateModal={() => openCloseModal(setIsUpdateModalOpen, false)} updateChosenWarehouse={updateChosenWarehouse} />
+          <UpdateForm closeUpdateModal={() => openCloseModal(setIsUpdateModalOpen, false)} chosenWarehouseId={chosenWarehouseId} />
         </ModalWindow>
     </div>
   )
