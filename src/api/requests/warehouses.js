@@ -33,6 +33,23 @@ export const getCurrentWarehouse = (id) => {
     }
 }
 
+export const getUploadedWarehouse = async (id, setWarehouseForm) => {
+    // Loader start
+    try {
+        await API.get(`${Paths.warehouse}/${id}`)
+        .then((response) => {
+            setWarehouseForm({
+                name: response.data.name,
+                adress: response.data.adress,
+            });
+        })
+    } catch (error) {
+        console.log(error);
+    } finally {
+        // Loader end
+    }
+}
+
 export const addWarehouse = (warehouse) => {
     return async (dispatch) => {
         // Loader start

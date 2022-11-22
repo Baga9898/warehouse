@@ -27,10 +27,14 @@
             &:hover {
 
                 .warehouses__item {
-                    scale: 1.1;
+                    scale: 1.07;
 
                     &-overlay {
                         background: #4d4d4dd4;
+
+                        &.a-lot-of {
+                            background: #854747d4;
+                        }
                     }
                 }
 

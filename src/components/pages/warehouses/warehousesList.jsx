@@ -8,7 +8,7 @@ import { Link }              from 'react-router-dom';
 import { useDispatch }       from 'react-redux';
 import React, { useState }   from 'react';
 
-import { deleteWarehouse, getCurrentWarehouse }   from '../../../api/requests/warehouses';
+import { deleteWarehouse }   from '../../../api/requests/warehouses';
 import { Paths }             from '../../../api/constants';
 import DeleteForm            from './warehouseForms/delete/deleteForm';
 import ModalWindow           from '../../shared/modalWindow/modalWindow';
@@ -26,7 +26,6 @@ const WarehousesList = ({ warehouses }) => {
   }
 
   const openUpdateWarehouse = (id) => {
-    dispatch(getCurrentWarehouse(id));
     setChosenWarehouseId(id);
     openCloseModal(setIsUpdateModalOpen, true);
   }
