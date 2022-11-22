@@ -1,14 +1,17 @@
-import { useDispatch }       from 'react-redux';
-import React, { useState }   from 'react';
+import { useDispatch, useSelector }   from 'react-redux';
+import React, { useState }            from 'react';
 
-import { updateWarehouse }   from './../../../../../api/requests/warehouses';
-import FormInput             from '../../../../shared/formInput/formInput';
+import { updateWarehouse }            from './../../../../../api/requests/warehouses';
+import FormInput                      from '../../../../shared/formInput/formInput';
+
+import './updateForm.scss';
 
 const UpdateForm = ({ closeUpdateModal, chosenWarehouseId }) => {
     const dispatch = useDispatch();
+    const currentWarehouse = useSelector(state => state.warehouse.currentWarehouse);
     const [warehouseForm, setWarehouseForm] = useState({
-        name: '',
-        adress: '',
+        name: currentWarehouse.name,
+        adress: currentWarehouse.adress,
     });
 
     const updateChosenWarehouse = () => {

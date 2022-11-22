@@ -8,9 +8,17 @@
         height: 100vh;
         overflow: hidden;
         background: #00000040;
+        opacity: 0;
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: 0.5s;
+        pointer-events: none;
+
+        &.open {
+            opacity: 1;
+            pointer-events: all;
+        }
     }
 
     &__wrapper {
