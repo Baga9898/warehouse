@@ -3,6 +3,7 @@ import React, { useState, useEffect }  from 'react';
 
 import { getWarehouses }               from './../../../api/requests/warehouses';
 import { openCloseModal }              from '../../../utils/helpers/warehouse.helpers';
+import * as INTL                       from '../../../utils/texts';
 import CreateForm                      from './warehouseForms/create/createForm';
 import ModalWindow                     from '../../shared/modalWindow/modalWindow';
 import PageTamplate                    from '../../shared/pageTemplate/pageTamplate';
@@ -23,8 +24,8 @@ const Warehouses = () => {
     return (
         <>
             <PageTamplate
-                pageName='Warehouses'
-                extraClassName={'warehouses'}
+                pageName={INTL.warehousesPage}
+                extraClassName='warehouses'
                 rightsideComponent={<WarehousesHeaderRightside setIsModalOpen={setIsCreateModalOpen}/>}
             >
                 <WarehousesList warehouses={warehouses}/>
@@ -32,7 +33,7 @@ const Warehouses = () => {
             <ModalWindow 
                 open={isCreateModalOpen} 
                 onClose={() => openCloseModal(setIsCreateModalOpen, false)}
-                actionName='Create warehouse'
+                actionName={INTL.createWarehouse}
             >
                 <CreateForm setIsCreateModalOpen={setIsCreateModalOpen}/>
             </ModalWindow>

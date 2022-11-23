@@ -1,10 +1,12 @@
-import React from 'react';
+import React        from 'react';
+
+import * as INTL    from '../../../utils/texts';
 import PageTamplate from '../../shared/pageTemplate/pageTamplate';
 
 const Home = () => {
   return (
     <PageTamplate
-      pageName={'Home'}
+      pageName={INTL.homePage}
       extraClassName='home'
       rightsideComponent={null}
     >

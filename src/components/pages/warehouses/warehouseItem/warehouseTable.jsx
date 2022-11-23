@@ -12,7 +12,7 @@ const WarehouseTable = () => {
     const cells = (createWarehouse(19, 19));
 
     return (
-        <table className={'warehouseItem__table'}>
+        <table className='warehouseItem__table'>
             <tbody>
                 {cells.row.map(row => (
                     <tr key={row}>

@@ -1,5 +1,9 @@
 export const Paths = {
-    root: '/',
-    warehouse: '/warehouse',
+    leftovers:  '/leftovers',
+    roles:      '/roles',
+    root:       '/',
+    statistic:  '/statistic',
+    users:      '/users',
+    warehouse:  '/warehouse',
     warehouses: '/warehouses',
 }

@@ -1,10 +1,11 @@
+import { Paths }       from './../../api/constants';
 import Home            from '../pages/home/home';
-import Warehouses      from './../pages/warehouses/warehouses';
 import WarehouseItem   from './../pages/warehouses/warehouseItem/warehouseItem';
+import Warehouses      from './../pages/warehouses/warehouses';
 
 export const routes = [
-    {path: '/', element: <Home />},
-    {path: '/warehouses', element: <Warehouses />},
-    {path: '/warehouses/:id', element: <WarehouseItem />},
+    {path: Paths.root, element: <Home />},
+    {path: Paths.warehouses, element: <Warehouses />},
+    {path: `${Paths.warehouses}/:id`, element: <WarehouseItem />},
     {path: '*', element: <div>404</div>},
 ]

@@ -17,7 +17,7 @@ const ModalWindow = ({ open, onClose, actionName, children, footerContent }) => 
                 <div className='modal__body'>
                     {children}
                 </div>
-                <div className={'modal__footer'}>
+                <div className='modal__footer'>
                     {footerContent}
                 </div>
             </div>

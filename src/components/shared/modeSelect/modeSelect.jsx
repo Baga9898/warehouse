@@ -7,9 +7,8 @@ import './modeSelect.scss';
 
 const ModeSelect = () => {
     const [menuIsVisible, setMenuIsVisible] = useState(false);
-
-    const dispatch = useDispatch();
     const currentItem = useSelector(state => state.warehouse.mode);
+    const dispatch = useDispatch();
 
     const setMode = (item) => {
         dispatch({ type: 'SET_MODE', payload: item})
@@ -21,7 +20,7 @@ const ModeSelect = () => {
 
     return (
         <div className='mode-select__wrapper' onClick={showMode}>
-            <p>Mode: {currentItem}</p>
+            <p>Mode: <span>{currentItem}</span></p>
             {menuIsVisible &&
                 <ul>
                     {MODES.allModes.map(item => (

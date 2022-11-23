@@ -1,5 +1,5 @@
-export const allModes = [ 'Create', 'Delete', 'Edit' ];
+export const allModes = [ 'create', 'delete', 'edit' ];
 
-export const createMode = 'Create';
-export const deleteMode = 'Delete';
-export const editMode = 'Edit';
+export const createMode = 'create';
+export const deleteMode = 'delete';
+export const editMode   = 'edit';

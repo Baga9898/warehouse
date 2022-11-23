@@ -1,6 +1,8 @@
+import { createMode } from "../../components/shared/modeSelect/selectModes";
+
 const defaultState = {
     currentWarehouse: {},
-    mode: 'Сreate',
+    mode: createMode,
     warehouses: [],
 }
 
@@ -27,7 +29,7 @@ export const warehouseReducer = (state=defaultState, action) => {
             return {...state, warehouses: [...action.payload]};
 
         case SET_DEFAULT_WAREHOUSE:
-            return {...state, currentWarehouse: {}, mode: 'Create'};
+            return {...state, currentWarehouse: {}, mode: createMode};
 
         case SET_MODE:
             return {...state, mode: action.payload};

@@ -2,8 +2,6 @@
 
     &__wrapper {
         position: relative;
-        display: flex;
-        align-items: center;
         min-width: 186px;
         height: 30px;
         padding: 0 8px;
@@ -12,6 +10,8 @@
         cursor: pointer;
         background: #d3d3d3;
         transition: 0.5s;
+        display: flex;
+        align-items: center;
 
         &:hover {
             background: #a9a9a9;
@@ -20,6 +20,10 @@
 
         p {
             font-size: 20px;
+
+            span {
+                text-transform: capitalize;
+            }
         }
 
         ul {
@@ -36,14 +40,15 @@
             box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
 
             li {
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 height: 40px;
                 font-size: 20px;
                 color: #000;
                 cursor: pointer;
+                text-transform: capitalize;
                 transition: 0.5s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
                 &:hover {
                     background: #cfcfcf;

@@ -11,6 +11,7 @@ import React, { useState }   from 'react';
 import { deleteWarehouse }   from '../../../api/requests/warehouses';
 import { openCloseModal }    from '../../../utils/helpers/warehouse.helpers';
 import { Paths }             from '../../../api/constants';
+import * as INTL             from '../../../utils/texts';
 import DeleteForm            from './warehouseForms/delete/deleteForm';
 import ModalWindow           from '../../shared/modalWindow/modalWindow';
 import UpdateForm            from './warehouseForms/update/updateForm';
@@ -65,14 +66,14 @@ const WarehousesList = ({ warehouses }) => {
         <ModalWindow 
           open={isDeleteModalOpen}
           onClose={() => openCloseModal(setIsDeleteModalOpen, false)}
-          actionName='Delete warehouse'
+          actionName={INTL.deleteWarehouse}
         >
           <DeleteForm closeDeleteModal={() => openCloseModal(setIsDeleteModalOpen, false)} deleteChosenWarehouse={deleteChosenWarehouse}/>
         </ModalWindow>
         <ModalWindow
           open={isUpdateModalOpen}
           onClose={() => openCloseModal(setIsUpdateModalOpen, false)}
-          actionName='Update warehouse'
+          actionName={INTL.updateWarehouse}
         >
           <UpdateForm closeUpdateModal={() => openCloseModal(setIsUpdateModalOpen, false)} chosenWarehouseId={chosenWarehouseId} />
         </ModalWindow>

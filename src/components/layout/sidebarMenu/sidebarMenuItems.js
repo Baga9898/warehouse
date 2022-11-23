@@ -1,4 +1,7 @@
 import { FontAwesomeIcon }   from '@fortawesome/react-fontawesome';
+
+import { Paths }             from './../../../api/constants';
+
 import { 
     faWarehouse, 
     faUsersGear, 
@@ -6,26 +9,27 @@ import {
     faBox, 
     faUserTag 
 }                            from '@fortawesome/free-solid-svg-icons';
+import * as INTL             from '../../../utils/texts';
 
 export const sidebarMenuItems = [
     {
-        section: 'Main',
+        section: INTL.mainSection,
         items: [
-            { title: 'warehouses', path: '/warehouses', icon: <FontAwesomeIcon icon={faWarehouse} /> },
+            { title: INTL.warehousesItem, path: Paths.warehouses, icon: <FontAwesomeIcon icon={faWarehouse} /> },
         ]
     },
     {
-        section: 'Statistic',
+        section: INTL.statisticSection,
         items: [
-            { title: 'statistic', path: '/statistic', icon: <FontAwesomeIcon icon={faChartSimple} /> },
-            { title: 'leftovers', path: '/test', icon: <FontAwesomeIcon icon={faBox} /> },
+            { title: INTL.statisticItem, path: Paths.statistic, icon: <FontAwesomeIcon icon={faChartSimple} /> },
+            { title: INTL.leftoversItem, path: Paths.leftovers, icon: <FontAwesomeIcon icon={faBox} /> },
         ]
     },
     {
-        section: 'Admin',
+        section: INTL.adminSection,
         items: [
-            { title: 'users', path: '/users', icon: <FontAwesomeIcon icon={faUsersGear} /> },
-            { title: 'roles', path: '/roles', icon: <FontAwesomeIcon icon={faUserTag} /> },
+            { title: INTL.usersItem, path: Paths.users, icon: <FontAwesomeIcon icon={faUsersGear} /> },
+            { title: INTL.rolesItem, path: Paths.roles, icon: <FontAwesomeIcon icon={faUserTag} /> },
         ]
     },
 ]
