@@ -1,8 +1,8 @@
-import { useDispatch }       from 'react-redux';
-import React, { useState, useEffect }   from 'react';
+import { useDispatch }                             from 'react-redux';
+import React, { useState, useEffect }              from 'react';
 
 import { getUploadedWarehouse, updateWarehouse }   from './../../../../../api/requests/warehouses';
-import FormInput             from '../../../../shared/formInput/formInput';
+import FormInput                                   from '../../../../shared/formInput/formInput';
 
 import './updateForm.scss';
 

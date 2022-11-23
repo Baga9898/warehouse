@@ -9,10 +9,12 @@ import { useDispatch }       from 'react-redux';
 import React, { useState }   from 'react';
 
 import { deleteWarehouse }   from '../../../api/requests/warehouses';
+import { openCloseModal }    from '../../../utils/helpers/warehouse.helpers';
 import { Paths }             from '../../../api/constants';
 import DeleteForm            from './warehouseForms/delete/deleteForm';
 import ModalWindow           from '../../shared/modalWindow/modalWindow';
 import UpdateForm            from './warehouseForms/update/updateForm';
+
 
 const WarehousesList = ({ warehouses }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -28,10 +30,6 @@ const WarehousesList = ({ warehouses }) => {
   const openUpdateWarehouse = (id) => {
     setChosenWarehouseId(id);
     openCloseModal(setIsUpdateModalOpen, true);
-  }
-
-  const openCloseModal = (callback, isOpen) => {
-    callback(isOpen);
   }
 
   const deleteChosenWarehouse = () => {

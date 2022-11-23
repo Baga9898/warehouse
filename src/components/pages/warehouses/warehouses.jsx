@@ -2,27 +2,23 @@ import { useDispatch, useSelector }    from 'react-redux';
 import React, { useState, useEffect }  from 'react';
 
 import { getWarehouses }               from './../../../api/requests/warehouses';
+import { openCloseModal }              from '../../../utils/helpers/warehouse.helpers';
+import CreateForm                      from './warehouseForms/create/createForm';
 import ModalWindow                     from '../../shared/modalWindow/modalWindow';
 import PageTamplate                    from '../../shared/pageTemplate/pageTamplate';
 import WarehousesHeaderRightside       from './warehouseItem/warehousesHeaderRightside/warehousesHeaderRightside';
 import WarehousesList                  from './warehousesList';
 
 import './warehouses.scss';
-import CreateForm from './warehouseForms/create/createForm';
 
 const Warehouses = () => {
     const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
-
-    const dispatch = useDispatch();
     const warehouses = useSelector(state => state.warehouse.warehouses);
+    const dispatch = useDispatch();
   
     useEffect(() => {
         dispatch(getWarehouses());
     }, []);
-
-    const closeCreateModal = () => {
-        setIsCreateModalOpen(false);
-    }
 
     return (
         <>
@@ -35,7 +31,7 @@ const Warehouses = () => {
             </PageTamplate>
             <ModalWindow 
                 open={isCreateModalOpen} 
-                onClose={closeCreateModal}
+                onClose={() => openCloseModal(setIsCreateModalOpen, false)}
                 actionName='Create warehouse'
             >
                 <CreateForm setIsCreateModalOpen={setIsCreateModalOpen}/>

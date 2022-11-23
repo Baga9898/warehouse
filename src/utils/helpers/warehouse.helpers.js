@@ -22,3 +22,7 @@ export const createWarehouse = (cols, rows) => {
         row: [...new Set(resultRows)],
     };
 }
+
+export const openCloseModal = (callback, isOpen) => {
+    callback(isOpen);
+}
