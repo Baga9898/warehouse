@@ -3,6 +3,7 @@ import React, { useState, useEffect }              from 'react';
 
 import { getUploadedWarehouse, updateWarehouse }   from './../../../../../api/requests/warehouses';
 import * as INTL                                   from './../../../../../utils/texts';
+import FormFooter                                  from './../formFooter/formFooter';
 import FormInput                                   from '../../../../shared/formInput/formInput';
 
 import './updateForm.scss';
@@ -43,6 +44,7 @@ const UpdateForm = ({ closeUpdateModal, chosenWarehouseId }) => {
         <div className='updateWarehouse__form'>
             {updateFormData.map(input => (
                 <FormInput 
+                    key={input.label}
                     label={input.label}
                     placeholder={input.placeholder}
                     changeFunction={input.changeFunction}
@@ -50,10 +52,12 @@ const UpdateForm = ({ closeUpdateModal, chosenWarehouseId }) => {
                 />
             ))}
         </div>
-        <div className='warehouseModal__footer'>
-            <button onClick={closeUpdateModal}>{INTL.cancel}</button>
-            <button onClick={updateChosenWarehouse}>{INTL.updateWarehouseAction}</button>
-        </div>
+        <FormFooter
+            firstFunction={closeUpdateModal}
+            secondFunction={updateChosenWarehouse}
+            firstButtonText={INTL.cancel}
+            secondButtonText={INTL.updateWarehouseAction}
+        />
     </>
   )
 }
