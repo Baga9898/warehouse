@@ -16,7 +16,7 @@ const CreateForm = ({ setIsCreateModalOpen }) => {
         image: '',
         capacity: 0,
         leftovers: 0,
-        adress: '',
+        address: '',
         racks: [],
     });
 
@@ -53,10 +53,10 @@ const CreateForm = ({ setIsCreateModalOpen }) => {
                 icon={faCircleInfo} 
             />
             <FormInput 
-                label='Adress' 
-                placeholder='Adress' 
-                changeFunction={(e) => setWarehouseForm({ ...warehouseForm, adress: e.target.value })} 
-                value={warehouseForm.adress}
+                label='address' 
+                placeholder='address' 
+                changeFunction={(e) => setWarehouseForm({ ...warehouseForm, address: e.target.value })} 
+                value={warehouseForm.address}
             />
         </div>
         <div className='warehouseModal__footer'>

@@ -40,7 +40,7 @@ export const getUploadedWarehouse = async (id, setWarehouseForm) => {
         .then((response) => {
             setWarehouseForm({
                 name: response.data.name,
-                adress: response.data.adress,
+                address: response.data.address,
             });
         })
     } catch (error) {
@@ -88,7 +88,7 @@ export const updateWarehouse = (id, changedValues) => {
         try {
             await API.put(`${Paths.warehouse}/${id}`, {
                 name: changedValues.name,
-                adress: changedValues.adress,
+                address: changedValues.address,
             })
             .then((response) => {
                 dispatch({ type: 'UPDATE_WAREHOUSE', payload: response.data})

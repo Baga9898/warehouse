@@ -10,7 +10,7 @@ const UpdateForm = ({ closeUpdateModal, chosenWarehouseId }) => {
     const dispatch = useDispatch();
     const [warehouseForm, setWarehouseForm] = useState({
         name: '',
-        adress: '',
+        address: '',
     });
 
     useEffect(() => {
@@ -32,10 +32,10 @@ const UpdateForm = ({ closeUpdateModal, chosenWarehouseId }) => {
                 value={warehouseForm.name}
             />
             <FormInput 
-                label='Adress'
-                placeholder='Warehouse adress'
-                changeFunction={(e) => setWarehouseForm({ ...warehouseForm, adress: e.target.value })}
-                value={warehouseForm.adress}
+                label='address'
+                placeholder='Warehouse address'
+                changeFunction={(e) => setWarehouseForm({ ...warehouseForm, address: e.target.value })}
+                value={warehouseForm.address}
             />
         </div>
         <div className='warehouseModal__footer'>
