@@ -1,4 +1,6 @@
-import React from 'react';
+import React       from 'react';
+
+import * as INTL   from '../../../../../utils/texts';
 
 import './deleteForm.scss';
 
@@ -6,11 +8,11 @@ const DeleteForm = ({ closeDeleteModal, deleteChosenWarehouse }) => {
   return (
     <>
         <div className='deleteModal__body'>
-            <p>Are you sure you want to delete the warehouse?</p>
+            <p>{INTL.deleteWarehouseContent}</p>
         </div>
         <div className='warehouseModal__footer'>
-            <button onClick={closeDeleteModal}>Cancel</button>
-            <button onClick={deleteChosenWarehouse}>Delete</button>
+            <button onClick={closeDeleteModal}>{INTL.cancel}</button>
+            <button onClick={deleteChosenWarehouse}>{INTL.deleteWarehouseAction}</button>
         </div>
     </>
   )
