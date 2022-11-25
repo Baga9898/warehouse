@@ -18,6 +18,14 @@
             color: #fff;
         }
 
+        &.open {
+
+            ul {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+
         p {
             font-size: 20px;
 
@@ -35,6 +43,9 @@
             min-width: 186px;
             border-radius: 5px;
             background: #dedede;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.5s;
             -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
             -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
             box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);

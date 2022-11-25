@@ -19,15 +19,13 @@ const ModeSelect = () => {
     }
 
     return (
-        <div className='mode-select__wrapper' onClick={showMode}>
+        <div className={'mode-select__wrapper ' + (menuIsVisible ? 'open' : '')} onClick={showMode}>
             <p>Mode: <span>{currentItem}</span></p>
-            {menuIsVisible &&
-                <ul>
-                    {MODES.allModes.map(item => (
-                        <li key={item} onClick={() => setMode(item)}>{item}</li>
-                    ))}
-                </ul>
-            }
+            <ul>
+                {MODES.allModes.map(item => (
+                    <li key={item} onClick={() => setMode(item)}>{item}</li>
+                ))}
+            </ul>
         </div>
     )
 }
