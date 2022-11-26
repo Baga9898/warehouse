@@ -5,6 +5,15 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
 
+const optimization = () => {
+    const config = {
+        splitChunks: {
+            chunks: 'all',
+        }
+    }
+    return config;
+}
+
 module.exports = {
     entry: path.resolve(__dirname, './src/index.js'),
     output: {
@@ -48,6 +57,7 @@ module.exports = {
     resolve: {
         extensions: ['*', '.js', '.jsx', '.scss'],
     },
+    optimization: optimization(),
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
