@@ -20,13 +20,17 @@ export const deleteWarehouse = 'delete warehouse';
 export const updateWarehouse = 'update warehouse';
 
 // Modal actions
-export const cancel                = 'cancel';
 export const createWarehouseAction = 'create';
 export const deleteWarehouseAction = 'delete';
 export const updateWarehouseAction = 'update';
 
 // Modal content
 export const deleteWarehouseContent = 'Are you sure you want to delete the warehouse?';
+
+// Buttons texts
+export const back   = 'back';
+export const cancel = 'cancel';
+
 
 // Inputs labels
 export const addressLabel = 'address';

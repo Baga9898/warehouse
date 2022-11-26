@@ -3,5 +3,33 @@
     &__header {
         display: flex;
         justify-content: space-between;
+
+        &-leftside {
+            display: flex;
+
+            button {
+                height: 30px;
+                padding: 0 8px;
+                margin-bottom: 20px;
+                margin-right: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                background: #d3d3d3;
+                transition: 0.5s;
+                text-transform: capitalize;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+
+                &:hover {
+                    background: #a9a9a9;
+                    color: #fff;
+                }
+                
+                svg {
+                    margin-right: 5px;
+                }
+            }
+        }
     }
 }

@@ -28,6 +28,7 @@ const WarehouseItem = () => {
             pageName={currentWarehouse.name}
             extraClassName='warehouseItem'
             rightsideComponent={<ModeSelect />}
+            isWithHistory
         >
             <div className='warehouseItem__table_wrapper'>
                 <WHSSelectableGroup>
