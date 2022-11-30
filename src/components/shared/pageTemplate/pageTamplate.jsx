@@ -5,6 +5,7 @@ import React                 from 'react';
 
 import { back }              from '../../../utils/texts';
 
+import 'animate.css';
 import './pageTemplate.scss';
 
 const PageTamplate = ({ pageName, extraClassName, children, rightsideComponent, isWithHistory }) => {
@@ -13,7 +14,7 @@ const PageTamplate = ({ pageName, extraClassName, children, rightsideComponent, 
   const goBack = () => navigate(-1);
 
   return (
-    <section className={'pageTemplate ' + extraClassName}>
+    <section className={'animate__animated animate__fadeIn pageTemplate ' + extraClassName}>
         <div className='pageTemplate__header'>
             <div className='pageTemplate__header-leftside'>
               {isWithHistory && 
