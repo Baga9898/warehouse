@@ -1,7 +1,7 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin      = require('html-webpack-plugin');
+const MiniCssExtractPlugin   = require('mini-css-extract-plugin');
+const path                   = require('path');
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -29,27 +29,23 @@ module.exports = {
                 use: ['babel-loader'],
             },
             {
-                test: /\.s(a|c)ss$/,
-                exclude: /node_modules/,
+                test: /\.(c|sa|sc)ss$/,
                 use: [
-                    production ? MiniCssExtractPlugin.loader : 'style-loader',
+                    !production ? 'style-loader' : MiniCssExtractPlugin.loader, 
+                    'css-loader',
                     {
-                        loader: 'css-loader',
+                        loader: 'postcss-loader',
                         options: {
-                            modules: false,
-                            sourceMap: !production,
+                            postcssOptions: {
+                                plugins: [require('postcss-preset-env')],
+                            }
                         }
                     },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: !production,
-                        }
-                    },
-                ]
+                    'sass-loader',
+                ],
             },
             {
-                test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+                test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg|ico)(\?[a-z0-9=.]+)?$/,
                 use: 'url-loader?limit=100000',
             },
         ],
