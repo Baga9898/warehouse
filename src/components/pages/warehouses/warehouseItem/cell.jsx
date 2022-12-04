@@ -6,13 +6,11 @@ import * as MODES              from '../../../shared/modeSelect/selectModes';
 
 const Cell = ({ selectableRef, isSelecting, col, row, filled }) => {
   const currentMode = useSelector(state => state.warehouse.mode);
+  const cellColor = filled ? 'isSelected' : isSelecting ? 'isSelecting' : '';
 
   return (
     <td 
-      className={filled 
-        ? 'isSelected' : isSelecting 
-        ? 'isSelecting' : ''
-      }
+      className={cellColor}
       ref={selectableRef}
     >
       {currentMode !== MODES.editMode && `${col}-${row}`}

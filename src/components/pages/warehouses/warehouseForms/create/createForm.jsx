@@ -26,9 +26,23 @@ const CreateForm = ({ setIsCreateModalOpen }) => {
         setIsCreateModalOpen(false);
     }
 
+    const setDefaultForm = () => {
+        setWarehouseForm({
+            name: '',
+            col: '',
+            row: '',
+            image: '',
+            capacity: 0,
+            leftovers: 0,
+            address: '',
+            racks: [],
+        });
+    }
+
     const createWarehouse = () => {
         dispatch(addWarehouse(warehouseForm));
         closeCreateModal();
+        setDefaultForm();
     }
 
     const createFormData = [
