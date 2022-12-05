@@ -1,10 +1,12 @@
-import { useSelector }         from 'react-redux';
-import React                   from 'react';
+import { useSelector }   from 'react-redux';
+import React             from 'react';
 
-import Cell                    from './cell';
+import Cell              from './cell';
 
-import { createWarehouse }     from '../../../../utils/helpers/warehouse.helpers';
-import { isRackFilledCheck }   from '../../../../utils/helpers/warehouse.helpers';
+import { 
+    createWarehouse,
+    isRackFilledCheck
+ }                       from '../../../../utils/helpers/warehouse.helpers';
 
 const WarehouseTable = () => {
     const currentRacks = useSelector(state => state.racks.racks);
