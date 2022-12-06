@@ -2,14 +2,16 @@ import { composeWithDevTools }                             from "redux-devtools-
 import { createStore, combineReducers, applyMiddleware }   from "redux";
 import thunk                                               from "redux-thunk";
 
+import { rackReducer }                                     from './reducers/rackReducer';
 import { racksReducer }                                    from './reducers/racksReducer';
 import { sidebarMenuReducer }                              from './reducers/sidebarMenuReducer';
 import { warehouseReducer }                                from './reducers/warehouseReducer';
 
 const rootReducer = combineReducers({
-    racks: racksReducer,
+    rack:        rackReducer,
+    racks:       racksReducer,
     sidebarMenu: sidebarMenuReducer,
-    warehouse: warehouseReducer,
+    warehouse:   warehouseReducer,
 })
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));

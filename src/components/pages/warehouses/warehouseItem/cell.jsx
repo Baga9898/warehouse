@@ -7,7 +7,7 @@ import React                   from 'react';
 import { getChosenCell }       from './../../../../api/requests/rack';
 import * as MODES              from '../../../shared/modeSelect/selectModes';
 
-const Cell = ({ selectableRef, isSelecting, col, row, filled }) => {
+const Cell = ({ selectableRef, isSelecting, col, row, filled, setIsRackModalOpen }) => {
   const currentMode = useSelector(state => state.warehouse.mode);
   const {id} = useParams();
   const dispatch = useDispatch();
@@ -15,6 +15,7 @@ const Cell = ({ selectableRef, isSelecting, col, row, filled }) => {
 
   const openChosenCell = (cell) => {
     dispatch(getChosenCell(cell, id));
+    setIsRackModalOpen(true);
   }
 
   return (
