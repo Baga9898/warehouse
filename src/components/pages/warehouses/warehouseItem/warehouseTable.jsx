@@ -11,6 +11,9 @@ import { openCloseModal }                       from './../../../../utils/helper
 const WarehouseTable = () => {
     const [isRackModalOpen, setIsRackModalOpen] = useState(false);
     const currentRacks = useSelector(state => state.racks.racks);
+    const chosenRack = useSelector(state => state.rack.currentRack);
+
+    console.log(chosenRack);
 
     const cells = (createWarehouse(19, 19));
 
@@ -33,8 +36,12 @@ const WarehouseTable = () => {
                     ))}
                 </tbody>
             </table>
-            <ModalWindow open={isRackModalOpen} onClose={() => openCloseModal(setIsRackModalOpen, false)} >
-                <Rack />
+            <ModalWindow 
+                open={isRackModalOpen} 
+                onClose={() => openCloseModal(setIsRackModalOpen, false)} 
+                actionName={chosenRack ? 'rack' : 'Create'}
+            >
+                <Rack rack={chosenRack} />
             </ModalWindow>
         </>
     )

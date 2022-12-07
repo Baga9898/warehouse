@@ -9,7 +9,7 @@ export const getChosenCell = (cellName, warehouseId) => {
             .then((response) => {
                 const cells = response.data.map((cell) => cell.cell);
                 const chosenCellIndex = cells.indexOf(cellName);
-                dispatch({ type: 'SET_CURRENT_RACK', payload:  response.data[chosenCellIndex] || {}});
+                dispatch({ type: 'SET_CURRENT_RACK', payload:  response.data[chosenCellIndex] || undefined});
             })
         } catch (error) {
             console.log(error);
