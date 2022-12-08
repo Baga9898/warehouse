@@ -1,5 +1,5 @@
 const defaultState = {
-    currentRack: {},
+    currentRack: undefined,
 };
 
 const SET_CURRENT_RACK = 'SET_CURRENT_RACK';
