@@ -56,7 +56,7 @@ const UpdateForm = ({ closeUpdateModal, chosenWarehouseId }) => {
             firstFunction={closeUpdateModal}
             secondFunction={updateChosenWarehouse}
             firstButtonText={INTL.cancel}
-            secondButtonText={INTL.updateWarehouseAction}
+            secondButtonText={INTL.updateAction}
         />
     </>
   )

@@ -92,7 +92,7 @@ const CreateForm = ({ setIsCreateModalOpen }) => {
             firstFunction={closeCreateModal} 
             secondFunction={createWarehouse} 
             firstButtonText={INTL.cancel} 
-            secondButtonText={INTL.createWarehouseAction}
+            secondButtonText={INTL.createAction}
         />
     </>
   )

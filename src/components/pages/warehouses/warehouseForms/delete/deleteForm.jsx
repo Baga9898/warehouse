@@ -15,7 +15,7 @@ const DeleteForm = ({ closeDeleteModal, deleteChosenWarehouse }) => {
           firstFunction={closeDeleteModal}
           secondFunction={deleteChosenWarehouse}
           firstButtonText={INTL.cancel}
-          secondButtonText={INTL.deleteWarehouseAction}
+          secondButtonText={INTL.deleteAction}
         />
     </>
   )

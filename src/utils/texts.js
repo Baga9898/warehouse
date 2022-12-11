@@ -20,9 +20,9 @@ export const deleteWarehouse = 'delete warehouse';
 export const updateWarehouse = 'update warehouse';
 
 // Modal actions
-export const createWarehouseAction = 'create';
-export const deleteWarehouseAction = 'delete';
-export const updateWarehouseAction = 'update';
+export const createAction = 'create';
+export const deleteAction = 'delete';
+export const updateAction = 'update';
 
 // Modal content
 export const deleteWarehouseContent = 'Are you sure you want to delete the warehouse?';
@@ -30,7 +30,6 @@ export const deleteWarehouseContent = 'Are you sure you want to delete the wareh
 // Buttons texts
 export const back   = 'back';
 export const cancel = 'cancel';
-
 
 // Inputs labels
 export const addressLabel = 'address';
