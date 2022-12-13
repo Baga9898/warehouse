@@ -11,6 +11,7 @@ import './rack.scss';
 
 const Rack = ({ rack, closeRackModal }) => {
     const [isAdvancedMenuOpen, setIsAdvancedMenuOpen] = useState(false);
+    const [isEditMode, setIsEditMode] = useState(false);
     const [shelveForm, setShelveForm] = useState({ name: '' });
 
     const setDefaultForm = () => {
@@ -35,12 +36,19 @@ const Rack = ({ rack, closeRackModal }) => {
         setDefaultForm();
     }
 
+    const setEditMode = () => {
+        setIsEditMode(true);
+    }
+
     return (
         rack ? (
             <div className='rackModal__body'>
                 <div className={'rackModal__advanced ' + (isAdvancedMenuOpen ? 'open' : '')}>
                     <button onClick={() => switchAdvancedMenu()}>
                         <FontAwesomeIcon icon={isAdvancedMenuOpen ? faAngleUp : faCircleInfo} className='rackModal__icon'/>
+                    </button>
+                    <button onClick={() => setEditMode()}>
+                        +
                     </button>
                     <div className='rackModal__advanced-info'>
                         <p><span>Name: </span>{rack.name}</p>
@@ -49,6 +57,24 @@ const Rack = ({ rack, closeRackModal }) => {
                         <p><span>Leftovers: </span>{`${rack.leftovers}/${rack.capacity}`}</p>
                     </div>
                 </div>
+                { isEditMode && (
+                    <>
+                        <div className='rackModal__body createShelve__form'>
+                            <FormInput 
+                                label='name'
+                                placeholder='shelve name'
+                                changeFunction={(e) => changeShalveName(e)}
+                                value={shelveForm.name}
+                            />
+                        </div>
+                        <FormFooter
+                            firstFunction={closeModal}
+                            secondFunction={createShelve}
+                            firstButtonText={INTL.cancel}
+                            secondButtonText={INTL.createAction}
+                        />
+                    </>
+                ) }
                 <div className='rackModal__shelves'>
                     {rack.shelves.map((shelve) => (
                         <div key={shelve} className='shelve'>{shelve}</div>
