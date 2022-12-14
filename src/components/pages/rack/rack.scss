@@ -27,10 +27,17 @@
             }
         }
 
+        &-addButton {
+            right: 70px;
+        }
+
+        &-infoButton {
+            right: 45px;
+        }
+
         button {
             position: absolute;
             top: 4px;
-            right: 45px;
             height: 30px;
             background: transparent;
 

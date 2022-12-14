@@ -1,18 +1,20 @@
-import { faAngleUp }         from '@fortawesome/free-solid-svg-icons';
-import { faCircleInfo }      from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon }   from '@fortawesome/react-fontawesome';
-import React, { useState }   from 'react';
+import { faAngleUp, faPlus }   from '@fortawesome/free-solid-svg-icons';
+import { faCircleInfo }        from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon }     from '@fortawesome/react-fontawesome';
+import { useSelector }         from 'react-redux';
+import React, { useState }     from 'react';
 
-import * as INTL             from '../../../utils/texts';
-import FormFooter            from '../warehouses/warehouseForms/formFooter/formFooter';
-import FormInput             from '../../shared/formInput/formInput';
+import * as INTL               from '../../../utils/texts';
+import FormFooter              from '../warehouses/warehouseForms/formFooter/formFooter';
+import FormInput               from '../../shared/formInput/formInput';
 
 import './rack.scss';
 
 const Rack = ({ rack, closeRackModal }) => {
     const [isAdvancedMenuOpen, setIsAdvancedMenuOpen] = useState(false);
-    const [isEditMode, setIsEditMode] = useState(false);
+    const [isAddMode, setIsAddMode] = useState(false);
     const [shelveForm, setShelveForm] = useState({ name: '' });
+    const currentRackNum = useSelector(state => state.rack.currentRackNum);
 
     const setDefaultForm = () => {
         setShelveForm({ name: '' });
@@ -27,7 +29,7 @@ const Rack = ({ rack, closeRackModal }) => {
     }
 
     const createShelve = () => {
-        console.log(shelveForm);
+        console.log(currentRackNum, shelveForm);
         setDefaultForm();
     }
 
@@ -37,18 +39,26 @@ const Rack = ({ rack, closeRackModal }) => {
     }
 
     const setEditMode = () => {
-        setIsEditMode(true);
+        setIsAddMode(true);
     }
 
     return (
         rack ? (
             <div className='rackModal__body'>
                 <div className={'rackModal__advanced ' + (isAdvancedMenuOpen ? 'open' : '')}>
-                    <button onClick={() => switchAdvancedMenu()}>
-                        <FontAwesomeIcon icon={isAdvancedMenuOpen ? faAngleUp : faCircleInfo} className='rackModal__icon'/>
+                    <button onClick={() => switchAdvancedMenu()} className='rackModal__advanced-infoButton'>
+                        <FontAwesomeIcon 
+                            icon={isAdvancedMenuOpen ? faAngleUp : faCircleInfo} 
+                            className='rackModal__icon'
+                            title='Rack info'
+                        />
                     </button>
-                    <button onClick={() => setEditMode()}>
-                        +
+                    <button onClick={() => setEditMode()} className='rackModal__advanced-addButton'>
+                        <FontAwesomeIcon 
+                            icon={faPlus} 
+                            className='rackModal__icon'
+                            title='Add shelve'
+                        />
                     </button>
                     <div className='rackModal__advanced-info'>
                         <p><span>Name: </span>{rack.name}</p>
@@ -57,7 +67,7 @@ const Rack = ({ rack, closeRackModal }) => {
                         <p><span>Leftovers: </span>{`${rack.leftovers}/${rack.capacity}`}</p>
                     </div>
                 </div>
-                { isEditMode && (
+                { isAddMode && (
                     <>
                         <div className='rackModal__body createShelve__form'>
                             <FormInput 
@@ -76,9 +86,9 @@ const Rack = ({ rack, closeRackModal }) => {
                     </>
                 ) }
                 <div className='rackModal__shelves'>
-                    {rack.shelves.map((shelve) => (
+                    {/* {rack.shelves.map((shelve) => (
                         <div key={shelve} className='shelve'>{shelve}</div>
-                    )) }
+                    )) } */}
                 </div>
             </div>
         ) : (

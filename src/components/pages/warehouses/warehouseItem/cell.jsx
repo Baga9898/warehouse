@@ -16,6 +16,7 @@ const Cell = ({ selectableRef, isSelecting, col, row, filled }) => {
   const openChosenCell = (cell) => {
     dispatch(getChosenCell(cell, id));
     dispatch({ type: 'SET_IS_RACK_MODAL_OPEN', payload: true });
+    dispatch({ type: 'SET_CURRENT_RACK_NUM', payload: cell });
   }
 
   return (

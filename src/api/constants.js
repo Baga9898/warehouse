@@ -7,5 +7,6 @@ export const Paths = {
     warehouses: '/warehouses',
 
     rack:       '/rack',
+    shelve:     '/shelve',
     warehouse:  '/warehouse',
 }
