@@ -21,7 +21,7 @@ const Rack = ({ rack, closeRackModal }) => {
         category: '',
         section: '',
     });
-    const currentRackNum = useSelector(state => state.rack.currentRackNum);
+    const currentRackNum = useSelector(state => state.racks.currentRackNum);
 
     const setDefaultForm = () => {
         setRackForm({ 
@@ -38,11 +38,7 @@ const Rack = ({ rack, closeRackModal }) => {
         setIsAdvancedMenuOpen(!isAdvancedMenuOpen);
     };
 
-    const changeShalveName = (e) => {
-        setRackForm({ ...rackForm, name: e.target.value });
-    }
-
-    const createShelve = () => {
+    const createRack = () => {
         console.log(currentRackNum, rackForm);
         setDefaultForm();
     }
@@ -52,34 +48,33 @@ const Rack = ({ rack, closeRackModal }) => {
         setDefaultForm();
     }
 
-    const setEditMode = () => {
-        setIsAddMode(true);
+    const setAddMode = () => {
+        setIsAddMode(!isAddMode);
     }
 
-    // создать массив инпутов.
     const rackFormData = [
         {
             label: INTL.nameLabel, 
             placeholder: 'add rack', 
-            changeFunction: (e) => setWarehouseForm({ ...rackForm, name: e.target.value }), 
+            changeFunction: (e) => setRackForm({ ...rackForm, name: e.target.value }), 
             value: rackForm.name,
         },
         {
             label: 'capacity', 
             placeholder: 'capacity', 
-            changeFunction: (e) => setWarehouseForm({ ...rackForm, capacity: e.target.value }), 
+            changeFunction: (e) => setRackForm({ ...rackForm, capacity: e.target.value }), 
             value: rackForm.capacity,
         },
         {
             label: 'category', 
             placeholder: 'category', 
-            changeFunction: (e) => setWarehouseForm({ ...rackForm, category: e.target.value }), 
+            changeFunction: (e) => setRackForm({ ...rackForm, category: e.target.value }), 
             value: rackForm.category,
         },
         {
             label: 'section', 
             placeholder: 'section', 
-            changeFunction: (e) => setWarehouseForm({ ...rackForm, section: e.target.value }), 
+            changeFunction: (e) => setRackForm({ ...rackForm, section: e.target.value }), 
             value: rackForm.section,
         }, 
     ];
@@ -95,13 +90,14 @@ const Rack = ({ rack, closeRackModal }) => {
                             title='Rack info'
                         />
                     </button>
-                    <button onClick={() => setEditMode()} className='rackModal__advanced-addButton'>
+                    <button onClick={() => setAddMode()} className='rackModal__advanced-addButton'>
                         <FontAwesomeIcon 
                             icon={faPlus} 
                             className='rackModal__icon'
                             title='Add shelve'
                         />
                     </button>
+                    {/* Заменить на компонент. */}
                     <div className='rackModal__advanced-info'>
                     {/* Изменить информацию на юолее актуальную. */}
                         <p><span>Name: </span>{rack.name}</p>
@@ -112,23 +108,27 @@ const Rack = ({ rack, closeRackModal }) => {
                 </div>
                 { isAddMode && (
                     <>
+                        {/* Заменить на компонент. */}
                         <div className='rackModal__body createShelve__form'>
-                        {/* Перебрать массив инпутов. */}
-                            <FormInput 
-                                label='name'
-                                placeholder='shelve name'
-                                changeFunction={(e) => changeShalveName(e)}
-                                value={rackForm.name}
-                            />
+                            {/* {rackFormData.map((input) => (
+                                <FormInput 
+                                    key={input.label}
+                                    label={input.label}
+                                    placeholder={input.placeholder}
+                                    changeFunction={input.changeFunction}
+                                    value={input.value}
+                                />
+                            )) } */}
                         </div>
-                        <FormFooter
+                        {/* <FormFooter
                             firstFunction={closeModal}
                             secondFunction={createShelve}
                             firstButtonText={INTL.cancel}
                             secondButtonText={INTL.createAction}
-                        />
+                        /> */}
                     </>
                 ) }
+                {/* Заменить на компонент. */}
                 <div className='rackModal__shelves'>
                 {/* Сделать запрос на апишку стеллажей. */}
                     {/* {rack.shelves.map((shelve) => (
@@ -138,17 +138,21 @@ const Rack = ({ rack, closeRackModal }) => {
             </div>
         ) : (
             <>
+                {/* Заменить на компонент. */}
                 <div className='rackModal__body createShelve__form'>
-                    <FormInput 
-                        label='name'
-                        placeholder=' name'
-                        changeFunction={(e) => changeShalveName(e)}
-                        value={rackForm.name}
-                    />
+                        {rackFormData.map((input) => (
+                            <FormInput 
+                                key={input.label}
+                                label={input.label}
+                                placeholder={input.placeholder}
+                                changeFunction={input.changeFunction}
+                                value={input.value}
+                            />
+                        )) }
                 </div>
                 <FormFooter
                     firstFunction={closeModal}
-                    secondFunction={createShelve}
+                    secondFunction={createRack}
                     firstButtonText={INTL.cancel}
                     secondButtonText={INTL.createAction}
                 />

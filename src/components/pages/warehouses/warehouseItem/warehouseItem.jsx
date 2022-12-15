@@ -16,8 +16,8 @@ import './warehouseItem.scss';
 const WarehouseItem = () => {
     const dispatch = useDispatch();
     const currentWarehouse = useSelector(state => state.warehouse.currentWarehouse);
-    const chosenRack = useSelector(state => state.rack.currentRack);
-    const isRackModalOpen = useSelector(state => state.rack.isRackModalOpen);
+    const chosenRack = useSelector(state => state.racks.currentRack);
+    const isRackModalOpen = useSelector(state => state.racks.isRackModalOpen);
     const {id} = useParams();
 
     useEffect(() => {

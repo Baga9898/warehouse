@@ -66,3 +66,16 @@ export const deleteRacks = (warehouseId, deleteRacks) => {
         }
     }
 }
+
+export const addRack = () => {
+    return async (dispatch) => {
+        // Loader start
+        try {
+            
+        } catch (error) {
+            console.error(error);
+        } finally {
+            // Loader end
+        }
+    }
+}
