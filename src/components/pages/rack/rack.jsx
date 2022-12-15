@@ -1,16 +1,17 @@
-import { faAngleUp, faPlus }   from '@fortawesome/free-solid-svg-icons';
-import { faCircleInfo }        from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon }     from '@fortawesome/react-fontawesome';
-import { useSelector }         from 'react-redux';
-import React, { useState }     from 'react';
+import { faAngleUp, faPlus }          from '@fortawesome/free-solid-svg-icons';
+import { faCircleInfo }               from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon }            from '@fortawesome/react-fontawesome';
+import { useDispatch, useSelector }   from 'react-redux';
+import React, { useState }            from 'react';
 
-import * as INTL               from '../../../utils/texts';
-import FormFooter              from '../warehouses/warehouseForms/formFooter/formFooter';
-import FormInput               from '../../shared/formInput/formInput';
+import { addRack }                    from '../../../api/requests/rack';
+import * as INTL                      from '../../../utils/texts';
+import FormFooter                     from '../warehouses/warehouseForms/formFooter/formFooter';
+import FormInput                      from '../../shared/formInput/formInput';
 
 import './rack.scss';
 
-const Rack = ({ rack, closeRackModal }) => {
+const Rack = ({ rack, closeRackModal, warehouseId }) => {
     const [isAdvancedMenuOpen, setIsAdvancedMenuOpen] = useState(false);
     const [isAddMode, setIsAddMode] = useState(false);
     const [rackForm, setRackForm] = useState({ 
@@ -20,8 +21,10 @@ const Rack = ({ rack, closeRackModal }) => {
         leftovers: 0,
         category: '',
         section: '',
+        warehousId: warehouseId,
     });
     const currentRackNum = useSelector(state => state.racks.currentRackNum);
+    const dispatch = useDispatch();
 
     const setDefaultForm = () => {
         setRackForm({ 
@@ -31,6 +34,7 @@ const Rack = ({ rack, closeRackModal }) => {
             leftovers: 0,
             category: '',
             section: '',
+            warehousId: warehouseId,
         });
     }
 
@@ -39,7 +43,7 @@ const Rack = ({ rack, closeRackModal }) => {
     };
 
     const createRack = () => {
-        console.log(currentRackNum, rackForm);
+        dispatch(addRack(currentRackNum, rackForm));
         setDefaultForm();
     }
 

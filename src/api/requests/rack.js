@@ -18,3 +18,23 @@ export const getChosenCell = (cellName, warehouseId) => {
         }
     }
 }
+
+export const addRack = (currentRackNum, rackForm) => {
+    return async (dispatch) => {
+        // Loader start
+        try {
+            await API.post(Paths.rack , {
+                ...rackForm, cell: currentRackNum,
+            })
+            .then(() => {
+                dispatch({ type: 'ADD_RACK', payload: {...rackForm, cell: currentRackNum} })
+                // Success notification toastify here.
+            })
+        } catch (error) {
+            console.error(error);
+            // Failed notification toastify here.
+        } finally {
+            // Loader end
+        }
+    }
+}

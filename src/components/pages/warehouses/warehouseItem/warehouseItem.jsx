@@ -48,7 +48,7 @@ const WarehouseItem = () => {
                 onClose={() => closeRackModal()} 
                 actionName={chosenRack ? 'rack' : 'Create'}
             >
-                <Rack rack={chosenRack} closeRackModal={closeRackModal} />
+                <Rack rack={chosenRack} closeRackModal={closeRackModal} warehouseId={id} />
             </ModalWindow>
         </PageTamplate>
     )

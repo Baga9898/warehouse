@@ -16,6 +16,9 @@ const SET_RACKS              = 'SET_RACKS';
 
 export const racksReducer = (state=defaultState, action) => {
     switch (action.type) {
+        case ADD_RACK:
+            return {...state, currentRack: action.payload};
+
         case DELETE_RACKS:
             return {...state, racks: [...action.payload]};
 
