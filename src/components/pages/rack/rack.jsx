@@ -21,7 +21,7 @@ const Rack = ({ rack, closeRackModal, warehouseId }) => {
         leftovers: 0,
         category: '',
         section: '',
-        warehousId: warehouseId,
+        warehouseId: warehouseId,
     });
     const currentRackNum = useSelector(state => state.racks.currentRackNum);
     const dispatch = useDispatch();
@@ -34,7 +34,7 @@ const Rack = ({ rack, closeRackModal, warehouseId }) => {
             leftovers: 0,
             category: '',
             section: '',
-            warehousId: warehouseId,
+            warehouseId: warehouseId,
         });
     }
 
