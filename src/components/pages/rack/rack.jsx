@@ -13,11 +13,25 @@ import './rack.scss';
 const Rack = ({ rack, closeRackModal }) => {
     const [isAdvancedMenuOpen, setIsAdvancedMenuOpen] = useState(false);
     const [isAddMode, setIsAddMode] = useState(false);
-    const [shelveForm, setShelveForm] = useState({ name: '' });
+    const [rackForm, setRackForm] = useState({ 
+        cell: '',
+        name: '',
+        capacity: 0,
+        leftovers: 0,
+        category: '',
+        section: '',
+    });
     const currentRackNum = useSelector(state => state.rack.currentRackNum);
 
     const setDefaultForm = () => {
-        setShelveForm({ name: '' });
+        setRackForm({ 
+            cell: '',
+            name: '',
+            capacity: 0,
+            leftovers: 0,
+            category: '',
+            section: '',
+        });
     }
 
     const switchAdvancedMenu = () => {
@@ -25,11 +39,11 @@ const Rack = ({ rack, closeRackModal }) => {
     };
 
     const changeShalveName = (e) => {
-        setShelveForm({ ...shelveForm, name: e.target.value });
+        setRackForm({ ...rackForm, name: e.target.value });
     }
 
     const createShelve = () => {
-        console.log(currentRackNum, shelveForm);
+        console.log(currentRackNum, rackForm);
         setDefaultForm();
     }
 
@@ -41,6 +55,34 @@ const Rack = ({ rack, closeRackModal }) => {
     const setEditMode = () => {
         setIsAddMode(true);
     }
+
+    // создать массив инпутов.
+    const rackFormData = [
+        {
+            label: INTL.nameLabel, 
+            placeholder: 'add rack', 
+            changeFunction: (e) => setWarehouseForm({ ...rackForm, name: e.target.value }), 
+            value: rackForm.name,
+        },
+        {
+            label: 'capacity', 
+            placeholder: 'capacity', 
+            changeFunction: (e) => setWarehouseForm({ ...rackForm, capacity: e.target.value }), 
+            value: rackForm.capacity,
+        },
+        {
+            label: 'category', 
+            placeholder: 'category', 
+            changeFunction: (e) => setWarehouseForm({ ...rackForm, category: e.target.value }), 
+            value: rackForm.category,
+        },
+        {
+            label: 'section', 
+            placeholder: 'section', 
+            changeFunction: (e) => setWarehouseForm({ ...rackForm, section: e.target.value }), 
+            value: rackForm.section,
+        }, 
+    ];
 
     return (
         rack ? (
@@ -61,6 +103,7 @@ const Rack = ({ rack, closeRackModal }) => {
                         />
                     </button>
                     <div className='rackModal__advanced-info'>
+                    {/* Изменить информацию на юолее актуальную. */}
                         <p><span>Name: </span>{rack.name}</p>
                         <p><span>Section: </span>{rack.section}</p>
                         <p><span>Category: </span>{rack.category}</p>
@@ -70,11 +113,12 @@ const Rack = ({ rack, closeRackModal }) => {
                 { isAddMode && (
                     <>
                         <div className='rackModal__body createShelve__form'>
+                        {/* Перебрать массив инпутов. */}
                             <FormInput 
                                 label='name'
                                 placeholder='shelve name'
                                 changeFunction={(e) => changeShalveName(e)}
-                                value={shelveForm.name}
+                                value={rackForm.name}
                             />
                         </div>
                         <FormFooter
@@ -86,6 +130,7 @@ const Rack = ({ rack, closeRackModal }) => {
                     </>
                 ) }
                 <div className='rackModal__shelves'>
+                {/* Сделать запрос на апишку стеллажей. */}
                     {/* {rack.shelves.map((shelve) => (
                         <div key={shelve} className='shelve'>{shelve}</div>
                     )) } */}
@@ -96,9 +141,9 @@ const Rack = ({ rack, closeRackModal }) => {
                 <div className='rackModal__body createShelve__form'>
                     <FormInput 
                         label='name'
-                        placeholder='shelve name'
+                        placeholder=' name'
                         changeFunction={(e) => changeShalveName(e)}
-                        value={shelveForm.name}
+                        value={rackForm.name}
                     />
                 </div>
                 <FormFooter
