@@ -83,10 +83,15 @@ const Rack = ({ rack, closeRackModal, warehouseId }) => {
         }, 
     ];
 
+    const shelveFormData = [
+        {},
+    ];
+
     return (
         rack ? (
             <div className='rackModal__body'>
                 <div className={'rackModal__advanced ' + (isAdvancedMenuOpen ? 'open' : '')}>
+                    {/* Объединить все кнопки действий в один компонент. */}
                     <button onClick={() => switchAdvancedMenu()} className='rackModal__advanced-infoButton'>
                         <FontAwesomeIcon 
                             icon={isAdvancedMenuOpen ? faAngleUp : faCircleInfo} 
@@ -103,7 +108,7 @@ const Rack = ({ rack, closeRackModal, warehouseId }) => {
                     </button>
                     {/* Заменить на компонент. */}
                     <div className='rackModal__advanced-info'>
-                    {/* Изменить информацию на юолее актуальную. */}
+                    {/* Изменить информацию на более актуальную. */}
                         <p><span>Name: </span>{rack.name}</p>
                         <p><span>Section: </span>{rack.section}</p>
                         <p><span>Category: </span>{rack.category}</p>
@@ -114,7 +119,7 @@ const Rack = ({ rack, closeRackModal, warehouseId }) => {
                     <>
                         {/* Заменить на компонент. */}
                         <div className='rackModal__body createShelve__form'>
-                            {/* {rackFormData.map((input) => (
+                            {shelveFormData.map((input) => (
                                 <FormInput 
                                     key={input.label}
                                     label={input.label}
@@ -122,14 +127,14 @@ const Rack = ({ rack, closeRackModal, warehouseId }) => {
                                     changeFunction={input.changeFunction}
                                     value={input.value}
                                 />
-                            )) } */}
+                            )) }
                         </div>
-                        {/* <FormFooter
+                        <FormFooter
                             firstFunction={closeModal}
                             secondFunction={createShelve}
                             firstButtonText={INTL.cancel}
                             secondButtonText={INTL.createAction}
-                        /> */}
+                        />
                     </>
                 ) }
                 {/* Заменить на компонент. */}
@@ -138,6 +143,7 @@ const Rack = ({ rack, closeRackModal, warehouseId }) => {
                     {/* {rack.shelves.map((shelve) => (
                         <div key={shelve} className='shelve'>{shelve}</div>
                     )) } */}
+                    <p>oops, nothing seems to be<br/>here yet</p>
                 </div>
             </div>
         ) : (
