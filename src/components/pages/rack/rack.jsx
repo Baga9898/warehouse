@@ -10,6 +10,7 @@ import FormFooter                     from '../warehouses/warehouseForms/formFoo
 import FormInput                      from '../../shared/formInput/formInput';
 
 import './rack.scss';
+import { addShelve } from '../../../api/requests/shelve';
 
 const Rack = ({ rack, closeRackModal, warehouseId }) => {
     const [isAdvancedMenuOpen, setIsAdvancedMenuOpen] = useState(false);
@@ -21,6 +22,14 @@ const Rack = ({ rack, closeRackModal, warehouseId }) => {
         leftovers: 0,
         category: '',
         section: '',
+        warehouseId: warehouseId,
+    });
+    const [shelveForm, setShelveForm] = useState({
+        shelve: '',
+        name: '',
+        capacity: '',
+        leftovers: 0,
+        rackId: '',
         warehouseId: warehouseId,
     });
     const currentRackNum = useSelector(state => state.racks.currentRackNum);
@@ -38,6 +47,17 @@ const Rack = ({ rack, closeRackModal, warehouseId }) => {
         });
     }
 
+    const setDefaultShelveForm = () => {
+        setShelveForm({
+            shelve: '',
+            name: '',
+            capacity: '',
+            leftovers: 0,
+            rackId: '',
+            warehouseId: warehouseId,
+        });
+    }
+
     const switchAdvancedMenu = () => {
         setIsAdvancedMenuOpen(!isAdvancedMenuOpen);
     };
@@ -45,6 +65,11 @@ const Rack = ({ rack, closeRackModal, warehouseId }) => {
     const createRack = () => {
         dispatch(addRack(currentRackNum, rackForm));
         setDefaultForm();
+    }
+
+    const createShelve = () => {
+        dispatch(addShelve(currentRackNum, warehouseId, shelveForm));
+        setDefaultShelveForm();
     }
 
     const closeModal = () => {
@@ -59,7 +84,7 @@ const Rack = ({ rack, closeRackModal, warehouseId }) => {
     const rackFormData = [
         {
             label: INTL.nameLabel, 
-            placeholder: 'add rack', 
+            placeholder: 'rack name', 
             changeFunction: (e) => setRackForm({ ...rackForm, name: e.target.value }), 
             value: rackForm.name,
         },
@@ -84,7 +109,18 @@ const Rack = ({ rack, closeRackModal, warehouseId }) => {
     ];
 
     const shelveFormData = [
-        {},
+        {
+            label: INTL.nameLabel, 
+            placeholder: 'shelve name', 
+            changeFunction: (e) => setShelveForm({ ...shelveForm, name: e.target.value }), 
+            value: shelveForm.name,
+        },
+        {
+            label: 'capacity', 
+            placeholder: '0', 
+            changeFunction: (e) => setShelveForm({ ...shelveForm, capacity: +e.target.value }), 
+            value: shelveForm.capacity,
+        },
     ];
 
     return (

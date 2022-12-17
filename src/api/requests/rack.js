@@ -26,8 +26,8 @@ export const addRack = (currentRackNum, rackForm) => {
             await API.post(Paths.rack , {
                 ...rackForm, cell: currentRackNum,
             })
-            .then(() => {
-                dispatch({ type: 'ADD_RACK', payload: {...rackForm, cell: currentRackNum} })
+            .then((response) => {
+                dispatch({ type: 'ADD_RACK', payload: response.data })
                 // Success notification toastify here.
             })
         } catch (error) {
