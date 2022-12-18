@@ -5,12 +5,12 @@ import { useDispatch, useSelector }   from 'react-redux';
 import React, { useState }            from 'react';
 
 import { addRack }                    from '../../../api/requests/rack';
+import { addShelve }                  from '../../../api/requests/shelve';
 import * as INTL                      from '../../../utils/texts';
 import FormFooter                     from '../warehouses/warehouseForms/formFooter/formFooter';
 import FormInput                      from '../../shared/formInput/formInput';
 
 import './rack.scss';
-import { addShelve } from '../../../api/requests/shelve';
 
 const Rack = ({ rack, closeRackModal, warehouseId }) => {
     const [isAdvancedMenuOpen, setIsAdvancedMenuOpen] = useState(false);
@@ -33,6 +33,7 @@ const Rack = ({ rack, closeRackModal, warehouseId }) => {
         warehouseId: warehouseId,
     });
     const currentRackNum = useSelector(state => state.racks.currentRackNum);
+    const currentRackShelves = useSelector(state => state.shelve.currentRackShelves);
     const dispatch = useDispatch();
 
     const setDefaultForm = () => {
@@ -176,10 +177,10 @@ const Rack = ({ rack, closeRackModal, warehouseId }) => {
                 {/* Заменить на компонент. */}
                 <div className='rackModal__shelves'>
                 {/* Сделать запрос на апишку стеллажей. */}
-                    {/* {rack.shelves.map((shelve) => (
-                        <div key={shelve} className='shelve'>{shelve}</div>
-                    )) } */}
-                    <p>oops, nothing seems to be<br/>here yet</p>
+                    {currentRackShelves.length !== 0 ? (
+                        currentRackShelves.map((shelve) => (
+                            <div key={shelve.shelve} className='shelve'>{shelve.shelve}</div>
+                    ))) : <p>oops, nothing seems to be<br/>here yet</p> }
                 </div>
             </div>
         ) : (

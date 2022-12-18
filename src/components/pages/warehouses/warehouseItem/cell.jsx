@@ -5,6 +5,7 @@ import { useSelector }         from 'react-redux';
 import React                   from 'react';
 
 import { getChosenCell }       from './../../../../api/requests/rack';
+import { getShelves }          from '../../../../api/requests/shelve';
 import * as MODES              from '../../../shared/modeSelect/selectModes';
 
 const Cell = ({ selectableRef, isSelecting, col, row, filled }) => {
@@ -16,6 +17,7 @@ const Cell = ({ selectableRef, isSelecting, col, row, filled }) => {
   const openChosenCell = (cell) => {
     if (filled) {
       dispatch(getChosenCell(cell, id));
+      dispatch(getShelves(cell, id));
       dispatch({ type: 'SET_IS_RACK_MODAL_OPEN', payload: true });
       dispatch({ type: 'SET_CURRENT_RACK_NUM', payload: cell });
     } else {
