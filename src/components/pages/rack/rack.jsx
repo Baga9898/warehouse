@@ -8,7 +8,7 @@ import { addRack }                    from '../../../api/requests/rack';
 import { addShelve }                  from '../../../api/requests/shelve';
 import * as INTL                      from '../../../utils/texts';
 import FormFooter                     from '../warehouses/warehouseForms/formFooter/formFooter';
-import FormInput                      from '../../shared/formInput/formInput';
+import ModalInputsList                from './../../shared/modalInputsList/modalInputsList';
 
 import './rack.scss';
 
@@ -154,18 +154,7 @@ const Rack = ({ rack, closeRackModal, warehouseId }) => {
                 </div>
                 { isAddMode && (
                     <>
-                        {/* Заменить на компонент. */}
-                        <div className='rackModal__body createShelve__form'>
-                            {shelveFormData.map((input) => (
-                                <FormInput 
-                                    key={input.label}
-                                    label={input.label}
-                                    placeholder={input.placeholder}
-                                    changeFunction={input.changeFunction}
-                                    value={input.value}
-                                />
-                            )) }
-                        </div>
+                        <ModalInputsList inputsArray={shelveFormData} />
                         <FormFooter
                             firstFunction={closeModal}
                             secondFunction={createShelve}
@@ -185,18 +174,7 @@ const Rack = ({ rack, closeRackModal, warehouseId }) => {
             </div>
         ) : (
             <>
-                {/* Заменить на компонент. */}
-                <div className='rackModal__body createShelve__form'>
-                        {rackFormData.map((input) => (
-                            <FormInput 
-                                key={input.label}
-                                label={input.label}
-                                placeholder={input.placeholder}
-                                changeFunction={input.changeFunction}
-                                value={input.value}
-                            />
-                        )) }
-                </div>
+                <ModalInputsList inputsArray={rackFormData} />
                 <FormFooter
                     firstFunction={closeModal}
                     secondFunction={createRack}
