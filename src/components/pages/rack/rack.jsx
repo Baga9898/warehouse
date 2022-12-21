@@ -6,6 +6,7 @@ import React, { useState }     from 'react';
 
 import CreateRackModal         from '../../shared/modals/CreateRackModal';
 import CreateShelveModal       from '../../shared/modals/createShelveModal';
+import RackShelves             from './rackShelves';
 
 import './rack.scss';
 
@@ -52,16 +53,8 @@ const Rack = ({ rack, warehouseId }) => {
                         <p><span>Leftovers: </span>{`${rack.leftovers}/${rack.capacity}`}</p>
                     </div>
                 </div>
-                { isAddMode && (
-                    <CreateShelveModal warehouseId={warehouseId} currentRackNum={currentRackNum} />
-                ) }
-                {/* Заменить на компонент. */}
-                <div className='rackModal__shelves'>
-                    {currentRackShelves.length !== 0 ? (
-                        currentRackShelves.map((shelve) => (
-                            <div key={shelve.shelve} className='shelve'>{shelve.shelve}</div>
-                    ))) : <p>oops, nothing seems to be<br/>here yet</p> }
-                </div>
+                { isAddMode && <CreateShelveModal warehouseId={warehouseId} currentRackNum={currentRackNum} /> }
+                <RackShelves currentRackShelves={currentRackShelves}/>
             </div>
         ) : (
             <CreateRackModal warehouseId={warehouseId} currentRackNum={currentRackNum} />
