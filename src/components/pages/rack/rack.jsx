@@ -9,6 +9,7 @@ import CreateShelveModal       from '../../shared/modals/createShelveModal';
 import RackShelves             from './rackShelves';
 
 import './rack.scss';
+import RackInfo from './rackInfo';
 
 const Rack = ({ rack, warehouseId }) => {
     const [isAdvancedMenuOpen, setIsAdvancedMenuOpen] = useState(false);
@@ -44,14 +45,7 @@ const Rack = ({ rack, warehouseId }) => {
                             title='Add shelve'
                         />
                     </button>
-                    {/* Заменить на компонент. */}
-                    <div className='rackModal__advanced-info'>
-                    {/* Изменить информацию на более актуальную. */}
-                        <p><span>Name: </span>{rack.name}</p>
-                        <p><span>Section: </span>{rack.section}</p>
-                        <p><span>Category: </span>{rack.category}</p>
-                        <p><span>Leftovers: </span>{`${rack.leftovers}/${rack.capacity}`}</p>
-                    </div>
+                    <RackInfo rack={rack} />
                 </div>
                 { isAddMode && <CreateShelveModal warehouseId={warehouseId} currentRackNum={currentRackNum} /> }
                 <RackShelves currentRackShelves={currentRackShelves}/>
