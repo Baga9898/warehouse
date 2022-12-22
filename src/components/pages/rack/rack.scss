@@ -1,7 +1,26 @@
 .rackModal {
+    position: relative;
     
     &__body {
         padding: 0 20px;
+    }
+
+    &__actions {
+        position: absolute;
+        top: 11px;
+        right: 45px;
+
+        button {
+            margin-left: 7px;
+            background: transparent;
+
+            &:hover {
+
+                .rackModal__icon {
+                    color: #000;
+                }
+            }
+        }
     }
 
     &__advanced {
@@ -33,20 +52,6 @@
 
         &-infoButton {
             right: 45px;
-        }
-
-        button {
-            position: absolute;
-            top: 5px;
-            height: 30px;
-            background: transparent;
-
-            &:hover {
-
-                .rackModal__icon {
-                    color: #000;
-                }
-            }
         }
 
         &.open {

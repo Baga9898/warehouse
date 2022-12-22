@@ -29,15 +29,7 @@ const Rack = ({ rack, warehouseId }) => {
     return (
         rack ? (
             <div className='rackModal__body'>
-                <div className={'rackModal__advanced ' + (isAdvancedMenuOpen ? 'open' : '')}>
-                    {/* Объединить все кнопки действий в один компонент. */}
-                    <button onClick={() => switchAdvancedMenu()} className='rackModal__advanced-infoButton'>
-                        <FontAwesomeIcon 
-                            icon={isAdvancedMenuOpen ? faAngleUp : faCircleInfo} 
-                            className='rackModal__icon'
-                            title='Rack info'
-                        />
-                    </button>
+                <div className='rackModal__actions'>
                     <button onClick={() => setAddMode()} className='rackModal__advanced-addButton'>
                         <FontAwesomeIcon 
                             icon={faPlus} 
@@ -45,6 +37,15 @@ const Rack = ({ rack, warehouseId }) => {
                             title='Add shelve'
                         />
                     </button>
+                    <button onClick={() => switchAdvancedMenu()} className='rackModal__advanced-infoButton'>
+                        <FontAwesomeIcon 
+                            icon={isAdvancedMenuOpen ? faAngleUp : faCircleInfo} 
+                            className='rackModal__icon'
+                            title='Rack info'
+                        />
+                    </button>
+                </div>
+                <div className={'rackModal__advanced ' + (isAdvancedMenuOpen ? 'open' : '')}>
                     <RackInfo rack={rack} />
                 </div>
                 { isAddMode && <CreateShelveModal warehouseId={warehouseId} currentRackNum={currentRackNum} /> }
