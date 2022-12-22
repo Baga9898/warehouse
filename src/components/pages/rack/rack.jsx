@@ -1,15 +1,13 @@
-import { faAngleUp, faPlus }   from '@fortawesome/free-solid-svg-icons';
-import { faCircleInfo }        from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon }     from '@fortawesome/react-fontawesome';
 import { useSelector }         from 'react-redux';
 import React, { useState }     from 'react';
 
 import CreateRackModal         from '../../shared/modals/CreateRackModal';
 import CreateShelveModal       from '../../shared/modals/createShelveModal';
+import RackActions             from './rackActions';
+import RackInfo                from './rackInfo';
 import RackShelves             from './rackShelves';
 
 import './rack.scss';
-import RackInfo from './rackInfo';
 
 const Rack = ({ rack, warehouseId }) => {
     const [isAdvancedMenuOpen, setIsAdvancedMenuOpen] = useState(false);
@@ -29,22 +27,11 @@ const Rack = ({ rack, warehouseId }) => {
     return (
         rack ? (
             <div className='rackModal__body'>
-                <div className='rackModal__actions'>
-                    <button onClick={() => setAddMode()} className='rackModal__advanced-addButton'>
-                        <FontAwesomeIcon 
-                            icon={faPlus} 
-                            className='rackModal__icon'
-                            title='Add shelve'
-                        />
-                    </button>
-                    <button onClick={() => switchAdvancedMenu()} className='rackModal__advanced-infoButton'>
-                        <FontAwesomeIcon 
-                            icon={isAdvancedMenuOpen ? faAngleUp : faCircleInfo} 
-                            className='rackModal__icon'
-                            title='Rack info'
-                        />
-                    </button>
-                </div>
+                <RackActions 
+                    isAdvancedMenuOpen={isAdvancedMenuOpen} 
+                    setAddMode={setAddMode} 
+                    switchAdvancedMenu={switchAdvancedMenu} 
+                />
                 <div className={'rackModal__advanced ' + (isAdvancedMenuOpen ? 'open' : '')}>
                     <RackInfo rack={rack} />
                 </div>
