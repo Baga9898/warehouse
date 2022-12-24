@@ -1,11 +1,12 @@
-import { useDispatch }       from 'react-redux';
-import React, { useState }   from 'react';
+import { useDispatch, useSelector }   from 'react-redux';
+import React, { useState }            from 'react';
 
-import { addRack }           from '../../../api/requests/rack';
-import * as INTL             from '../../../utils/texts';
-import CreateModalTemplate   from './createModalTemplate';
+import { addRack }                    from '../../../api/requests/rack';
+import * as INTL                      from '../../../utils/texts';
+import CreateModalTemplate            from './createModalTemplate';
 
-const CreateRackModal = ({ warehouseId, currentRackNum }) => {
+const CreateRackModal = ({ warehouseId }) => {
+    const currentRackNum = useSelector(state => state.racks.currentRackNum);
     const dispatch = useDispatch();
     const [rackForm, setRackForm] = useState({ 
         cell: '',

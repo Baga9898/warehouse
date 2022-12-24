@@ -28,7 +28,6 @@ const CreateShelveModal = ({ warehouseId, currentRackNum }) => {
     }
 
     const createShelve = () => {
-        console.log(currentRackNum, warehouseId);
         dispatch(addShelve(currentRackNum, warehouseId, shelveForm));
         setDefaultShelveForm();
     }
