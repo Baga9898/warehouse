@@ -8,7 +8,7 @@ import ModalWindow                      from '../../../shared/modalWindow/modalW
 import ModeSelect                       from '../../../shared/modeSelect/modeSelect';
 import PageTamplate                     from '../../../shared/pageTemplate/pageTamplate';
 import Rack                             from '../../rack/rack';
-import WarehouseTable                   from './warehouseTable';
+import WarehouseTable                   from './warehouseTable/warehouseTable';
 import WHSSelectableGroup               from '../../../shared/whsSelectableGroup/whsSelectableGroup';
 
 import './warehouseItem.scss';

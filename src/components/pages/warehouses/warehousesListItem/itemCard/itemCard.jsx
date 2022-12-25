@@ -3,7 +3,7 @@ import { FontAwesomeIcon }   from '@fortawesome/react-fontawesome';
 import { Link }              from 'react-router-dom';
 import React                 from 'react';
 
-import { Paths }             from '../../../../api/constants';
+import { Paths }             from '../../../../../api/constants';
 
 const ItemCard = ({ warehouse }) => {
     return (

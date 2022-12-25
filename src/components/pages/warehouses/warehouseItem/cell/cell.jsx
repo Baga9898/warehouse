@@ -4,14 +4,14 @@ import { useParams }           from 'react-router-dom';
 import { useSelector }         from 'react-redux';
 import React                   from 'react';
 
-import { getChosenCell }       from './../../../../api/requests/rack';
-import { getShelves }          from '../../../../api/requests/shelve';
-import * as MODES              from '../../../shared/modeSelect/selectModes';
+import { getChosenCell }       from '../../../../../api/requests/rack';
+import { getShelves }          from '../../../../../api/requests/shelve';
+import * as MODES              from '../../../../shared/modeSelect/selectModes';
 
 const Cell = ({ selectableRef, isSelecting, col, row, filled }) => {
   const currentMode = useSelector(state => state.warehouse.mode);
-  const {id} = useParams();
   const dispatch = useDispatch();
+  const {id} = useParams();
   const cellColor = filled ? 'isSelected' : isSelecting ? 'isSelecting' : '';
 
   const openChosenCell = (cell) => {

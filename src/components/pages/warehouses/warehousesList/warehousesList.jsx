@@ -1,13 +1,13 @@
 import { useDispatch }       from 'react-redux';
 import React, { useState }   from 'react';
 
-import { deleteWarehouse }   from '../../../api/requests/warehouses';
-import { openCloseModal }    from '../../../utils/helpers/warehouse.helpers';
-import * as INTL             from '../../../utils/texts';
-import DeleteForm            from './warehouseForms/delete/deleteForm';
-import ModalWindow           from '../../shared/modalWindow/modalWindow';
-import UpdateForm            from './warehouseForms/update/updateForm';
-import WarehousesListItem    from './warehousesListItem/warehousesListItem';
+import { deleteWarehouse }   from '../../../../api/requests/warehouses';
+import { openCloseModal }    from '../../../../utils/helpers/warehouse.helpers';
+import * as INTL             from '../../../../utils/texts';
+import DeleteForm            from '../warehouseForms/delete/deleteForm';
+import ModalWindow           from '../../../shared/modalWindow/modalWindow';
+import UpdateForm            from '../warehouseForms/update/updateForm';
+import WarehousesListItem    from '../warehousesListItem/warehousesListItem';
 
 
 const WarehousesList = ({ warehouses }) => {

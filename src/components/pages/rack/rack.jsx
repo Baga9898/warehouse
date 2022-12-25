@@ -1,6 +1,6 @@
 import React             from 'react';
 
-import CreateRackModal   from '../../shared/modals/сreateRackModal';
+import CreateRackModal   from '../../shared/modals/createRackModal/сreateRackModal';
 import RackInfoModal     from '../../shared/modals/rackInfoModal/rackInfoModal';
 
 import './rack.scss';

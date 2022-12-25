@@ -1,10 +1,10 @@
 import { useSelector }       from 'react-redux';
 import React, { useState }   from 'react';
 
-import CreateShelveModal     from './../createShelveModal';
-import RackActions           from './../../../pages/rack/rackActions';
-import RackInfo              from './../../../pages/rack/rackInfo';
-import RackShelves           from './../../../pages/rack/rackShelves';
+import CreateShelveModal     from '../createShelveModal/createShelveModal';
+import RackActions           from '../../../pages/rack/rackActions/rackActions';
+import RackInfo              from '../../../pages/rack/rackInfo/rackInfo';
+import RackShelves           from '../../../pages/rack/rackShelves/rackShelves';
 
 const RackInfoModal = ({ rack, warehouseId }) => {
     const currentRackShelves = useSelector(state => state.shelve.currentRackShelves);

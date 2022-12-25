@@ -1,9 +1,9 @@
 import { useDispatch }       from 'react-redux';
 import React, { useState }   from 'react';
 
-import { addShelve }         from './../../../api/requests/shelve';
-import * as INTL             from '../../../utils/texts';
-import CreateModalTemplate   from './createModalTemplate';
+import { addShelve }         from '../../../../api/requests/shelve';
+import * as INTL             from '../../../../utils/texts';
+import CreateModalTemplate   from '../createModalTemplate';
 
 const CreateShelveModal = ({ warehouseId, currentRackNum }) => {
     const dispatch = useDispatch();

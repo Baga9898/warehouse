@@ -8,7 +8,7 @@ import CreateForm                      from './warehouseForms/create/createForm'
 import ModalWindow                     from '../../shared/modalWindow/modalWindow';
 import PageTamplate                    from '../../shared/pageTemplate/pageTamplate';
 import WarehousesHeaderRightside       from './warehouseItem/warehousesHeaderRightside/warehousesHeaderRightside';
-import WarehousesList                  from './warehousesList';
+import WarehousesList                  from './warehousesList/warehousesList';
 
 import './warehouses.scss';
 

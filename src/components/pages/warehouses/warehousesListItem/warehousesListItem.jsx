@@ -1,7 +1,7 @@
 import React         from 'react';
 
-import ItemActions   from './itemActions';
-import ItemCard      from './itemCard';
+import ItemActions   from './itemActions/itemActions';
+import ItemCard      from './itemCard/itemCard';
 
 const WarehousesListItem = ({ warehouse, openDeleteModal, openUpdateModal }) => {
   return (
