@@ -91,9 +91,28 @@
     color: #8f8f8f;
     transition: 0.5s;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
 
     &:hover {
         background: #999999;
         color: #fff;
+
+        .shelve__actions {
+            color: #c2c2c2;
+        }
+    }
+
+    &__actions {
+        color: #a7a7a7a0;
+
+        svg {
+            margin-left: 5px;
+            transition: 0.5s;
+
+            &:hover {
+                color: #fff;
+            }
+        }
     }
 }
