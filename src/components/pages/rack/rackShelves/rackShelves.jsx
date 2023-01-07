@@ -1,19 +1,12 @@
-import { faPencil, faTrash }   from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon }     from '@fortawesome/react-fontawesome';
 import React                   from 'react';
+import Shelve from './shelve/shelve';
 
 const RackShelves = ({ currentRackShelves }) => {
     return (
         <div className='rackModal__shelves'>
             {currentRackShelves.length !== 0 ? (
                 currentRackShelves.map((shelve) => (
-                    <div key={shelve.shelve} className='shelve'>
-                        {shelve.shelve}
-                        <div className='shelve__actions'>
-                            <FontAwesomeIcon icon={faPencil} />
-                            <FontAwesomeIcon icon={faTrash} />
-                        </div>
-                    </div>
+                    <Shelve shelve={shelve} />
             ))) : <p>oops, nothing seems to be<br/>here yet</p> }
         </div>
     );
