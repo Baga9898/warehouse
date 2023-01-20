@@ -1,4 +1,5 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const Dotenv                 = require('dotenv-webpack');
 const HtmlWebpackPlugin      = require('html-webpack-plugin');
 const MiniCssExtractPlugin   = require('mini-css-extract-plugin');
 const path                   = require('path');
@@ -63,6 +64,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: production ? '[name].[contenthash].css' : '[name].css',
         }),
+        new Dotenv(),
     ],
     devServer: {
         port: 3001,
